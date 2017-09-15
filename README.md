@@ -92,7 +92,7 @@ The following code:
     
     setInterval(update, 50);
 
-Calls our `update` function ever 50 milliseconds, which is about 20 times per second. 
+Calls our `update` function every 50 milliseconds, which is about 20 times per second. 
 
 To animate the box, add the following code to the update function
 
