@@ -13,8 +13,10 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 * Visit Cloud 9
 * Create an HTML5 workspace using this repo
 * Click the 'Start Editing' button
-* copy this index.html file into your workspace
-* copy this jquery.min.js file into your workspace
+* Create a New File called index.html
+* Create a New File called jquery.min.js
+* copy the code found in index.html into your file called index.html
+* copy the code found in jquery.min.js into your file called jquery.min.js
 
 ## A note about jQuery
 
