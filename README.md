@@ -11,12 +11,11 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 ## Let's get started
 
 * Visit Cloud 9
-* Create an HTML5 workspace using this repo
-* Click the 'Start Editing' button
-* Create a New File called index.html
-* Create a New File called jquery.min.js
-* copy the code found in index.html into your file called index.html
-* copy the code found in jquery.min.js into your file called jquery.min.js
+* Open your first website workspace
+* go to your bash terminal (located at the bottom of the cloud9 workspace) and enter the command **os install**
+* use your arrow keys to scroll to bouncing-box and hit enter
+* type in Y and hit enter
+* you will be editing the index.html file
 
 ## A note about jQuery
 
