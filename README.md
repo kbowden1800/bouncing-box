@@ -9,12 +9,17 @@ We're going to create a simple game where a box moves across the screen at an in
 Our goal for this game is to learn how to bring together HTML, CSS, and JavaScript. We use HTML to define our structure, CSS to define the style of that structure, and JavaScript in order to implement behavior. One of the primary ways we can implement behavior in JavaScript is by making modifications to the HTML and CSS in response to **events** which we will demonstrate by making this simple game. 
 
 ## Let's get started
-
+* Make sure your github and cloud9 accounts are linked to Greenlight
 * Open your first website workspace
 * go to your bash terminal (located at the bottom of the cloud9 workspace) and enter the command **os install**
 * use your arrow keys to scroll to bouncing-box and hit enter
 * type in Y and hit enter
 * you will be editing the index.html file
+
+NOTE: If you are asked to enter your credentials
+* Type in your github username and hit enter
+* Type in Y and hit enter
+* Type in your password and hit enter. It won't look like you're typing but it's just hiding your text. It may ask you again and give an error but after that os install will work
 
 ## A note about jQuery
 
