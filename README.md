@@ -10,11 +10,15 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 
 ## Let's get started
 
+* Click Fork in the top right corner of this page and choose your github account
+    * The top of this page should read <your username> / bouncing-box
+* Click Clone or Download and copy the link to your clipboard
 * Visit Cloud 9
 * Open your first website workspace
-* go to your bash terminal (located at the bottom of the cloud9 workspace) and enter the command **os install**
-* use your arrow keys to scroll to bouncing-box and hit enter
-* type in Y and hit enter
+* go to your bash terminal (located at the bottom of the cloud9 workspace)
+* enter the command **git clone** and paste the github link
+* hit enter
+* open up your bouncing-box folder and open the index.html file
 * you will be editing the index.html file
 
 ## A note about jQuery
