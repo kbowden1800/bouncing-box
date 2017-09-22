@@ -16,7 +16,10 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 * type in Y and hit enter
 * you will be editing the index.html file
 
-NOTE: If you are asked to enter your credentials
+NOTE 1: If you receive an error that says os install command not found
+* enter the command ``` npm install -g opspark ``` and try again
+
+NOTE 2: If you are asked to enter your credentials
 * Type in your github username and hit enter
 * Type in Y and hit enter
 * Type in your password and hit enter. It won't look like you're typing but it's just hiding your text. It may ask you again and give an error but after that os install will work
