@@ -98,7 +98,7 @@ You can create animation on a web page by changing the appearance of an object o
 
 The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. 
 
-The following code:
+The following code (It's already there so you don't need to copy/paste this):
     
     setInterval(update, 50);
 
@@ -121,7 +121,7 @@ Each time we call the `update` function the position variable gets larger and la
         position = 0;
     }
 
-Your `update` function should look like this:
+Your entire `update` function should look like this:
 
     update = function() {
         position = position + speed;
@@ -139,7 +139,7 @@ An event is just a particular thing that has happened. Some examples of **events
 - The user clicking on something
 - the web page has finished loading
 
-JavaScript allows us to change the web page in response to **events**. The following code calls the `handleBoxClick` function every time the box is clicked. 
+JavaScript allows us to change the web page in response to **events**. The following code calls the `handleBoxClick` function every time the box is clicked. (It's already there so you do not need to copy/paste this)
 
     box.on('click', handleBoxClick);
 
@@ -182,7 +182,7 @@ whether to add or subract the speed. Let's declare and initialize it up top:
     var direction;
     direction = 1;
     
-Now we modify the `update` function to be as follows:
+Now change the `update` function to set the value of position like so:
 
     position = position + (speed * direction);
     
@@ -190,16 +190,15 @@ When `direction` is set to 1 then this increases the position by `speed`,
 sending the box to the right.  But when `direction` is set to -1,
 the speed is subracted from the position, sending the box to the left.
 
-Lastly, we need to change the bounds-check in the `update` function:
+So, in our update function we have this if statement to make sure our box doesn't go off the right side of the screen. 
 
     if(position > boardWidth) {
         position = 0;
     }
-    
-so that instead of looping to position 0 we change the direction to -1.
+We need to change this bounds-check so that instead of resetting the position of our box to 0 we change the direction to -1.
 Do this and confirm that the box bounces off the right wall.
-However, you will need to add another bounds-check (if...) to make the box bounce
-off the left wall.  Do this yourself!
+
+Now that your box bounces off the right wall you'll need to make it bounce off the left wall. What should the bounds check be to make this happen? Do this yourself!
 
 ####Hint: At what position value do you want the box to "bounce" off the left wall?
 
