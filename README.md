@@ -64,6 +64,7 @@ Notice how you can change the appearance of the box using CSS! Now return those 
 We discovered earlier that **the `left` css property changes how far from the left side of screen the box is**. To make our box move we want to change the `left` css property. The `box.css()` function lets us change css properties using JavaScript. 
 
 Add the following code below `TODO 2`
+
     //TODO 2
     var position;
     
@@ -80,7 +81,6 @@ Before we move on, lets reset position to 0 so it moves back to the left side of
 
 Declare and initialize `points` variables to zero and `speed` to 10 by adding the following under `TODO 2`.
 
-    // TODO 2
     var position;
     var points;
     var speed;
