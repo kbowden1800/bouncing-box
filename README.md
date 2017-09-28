@@ -47,10 +47,10 @@ The HTML for our box has already been created for us:
 
 Find the CSS that styles the box and change the following properties:
 
-- `left`
-- `top` 
-- `width`
-- `height`
+- `left` (how many pixels from the left of the screen the box is - **as this increases the box moves right**)
+- `top` (how many pixels from the top of the screen the box is - as this increases the box moves down)
+- `width` (how wide the box is pixels)
+- `height` (how tall the box is in pixels)
 
 Notice how you can change the appearance of the box using CSS! Now return those to their original values
 
@@ -59,11 +59,26 @@ Notice how you can change the appearance of the box using CSS! Now return those 
     top: 100px;
     left: 0px;
 
-### TODO 2: Learn how to move the box
+### TODO 2: Learn how to move the box using the box.css() function
 
-You can also change the appearance of the box using JavaScript. 
+We discovered earlier that **the `left` css property changes how far from the left side of screen the box is**. To make our box move we want to change the `left` css property. The `box.css()` function lets us change css properties using JavaScript. 
 
-Declare and initialize `position` and `points` variables to zero
+Add the following code below `TODO 2`
+    //TODO 2
+    var position;
+    
+    position = 0;
+
+    box.css('left', position);
+
+`box.css('left', position);` sets the value of the `left` css property to the value held in our `position` variable which is currently 0. Increase the value of the `position` variable and watch the box move to the right!
+
+Before we move on, lets reset position to 0 so it moves back to the left side of the screen.
+
+    position = 0;  
+
+
+Declare and initialize `points` variables to zero and `speed` to 10 by adding the following under `TODO 2`.
 
     // TODO 2
     var position;
@@ -74,44 +89,39 @@ Declare and initialize `position` and `points` variables to zero
     points = 0;
     speed = 10;
 
-Now add the following code under `TODO 2`
-    
-    box.css('left', position);
-
-Now change the value of the `position` variable and watch the box move
-
 JavaScript lets us change HTML as well. Add the following JavaScript code under `TODO 2`
 
     box.text(points);
 
 Change the `points` variable and watch how it changes the box. 
 
-Before we move on, lets reset those variables to their starting values
 
-    position = 0;  
-    points = 0;  
-    speed = 10;
 
-### TODO 3: Animating the box
+### TODO 3: Animating the box - Think of a flip book!
 
 You can create animation on a web page by changing the appearance of an object over time. A traditional animation is made up of individual "frames" of still images. If you flip between these images rapidly and each image is just slightly different than the previous image, the viewer sees the scene as motion. We do the same thing in programming. 
 
 The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. 
 
-The following code (It's already there so you don't need to copy/paste this):
+The following code calls our `update` function every 1000 milliseconds or every second. 
+(It's already there so you don't need to copy/paste this):
     
-    setInterval(update, 50);
+    setInterval(update, 1000);
 
-Calls our `update` function every 50 milliseconds, which is about 20 times per second. 
-
-To animate the box, add the following code to the update function
+Now we want our update function to animate the box. Add the following code to the update function.
 
     update = function() {
         position = position + speed;
         box.css('left', position);
     };
 
-This changes our position on every call to `update` and then also moves the box to that position.
+Every time the `update` function is called (or every second) the position variable is increased and the box is set to that new position. 
+
+Change the second argument in setInterval() to 50 to it looks like this now:
+
+    setInterval(update, 50)
+
+Now the update function is being called every 50 milliseconds (or 20 times a second) making the box move faster and more smoothly across the screen.
 
 ### TODO 4: Hey box, come back!
 

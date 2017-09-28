@@ -37,28 +37,44 @@
 			var update;
 			var handleBoxClick;
 
-			// jQuery stuff setup for you
+			// DO NOT EDIT OR DELETE
+			// the box variable holds a reference to the HTML box element
 			box = $('.box');
+
+			// the boardWidth variable holds the width of the screen measured in pixels
 			boardWidth = $('.board').width();
 
 			// TODO 2
+			var position;
+			var points;
+			var speed;
 
+			position = 500;
+			points = 0;
+			speed = 10;
 
-			// TODO 3 / 4
+			box.css('left', position);
+			box.text(points);
+			
+			// This function updates the position and text of the box every time it is called
 			update = function() {
-
+				// TODO 3 / 4
+				position = position + speed;
+       			box.css('left', position);
 			};
 
 
-			// TODO 5 / 6
+			// This Function will update the score and speed of your box every time it is called.
 			handleBoxClick = function() {
-
+				// TODO 5 / 6
 			};
 
 
-			//this calls update every 50 milliseconds
+			// this calls our update every 1000 milliseconds (or 1 second)
+			// change the second argument from 1000 to 50
 			setInterval(update, 50);
-			// this calls the handle handleBoxClick function every time the box is clicked on
+
+			// this calls the handleBoxClick function every time the box is clicked on
 			box.on('click', handleBoxClick);
 		})();
 	</script>
