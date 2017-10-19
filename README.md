@@ -8,21 +8,17 @@ We're going to create a simple game where a box moves across the screen at an in
 
 Our goal for this game is to learn how to bring together HTML, CSS, and JavaScript. We use HTML to define our structure, CSS to define the style of that structure, and JavaScript in order to implement behavior. One of the primary ways we can implement behavior in JavaScript is by making modifications to the HTML and CSS in response to **events** which we will demonstrate by making this simple game. 
 
-## Let's get started
+
+## Let's get started - installing bouncing box with `os install`
+NOTE: If you receive an error that says, `os install command not found` the opspark CLI is not installed. To install it, enter the command `npm intall -g opspark` in your bash terminal. 
+
 * Make sure your github and cloud9 accounts are linked to Greenlight
 * Open your first website workspace
-* go to your bash terminal (located at the bottom of the cloud9 workspace) and enter the command **os install**
-* use your arrow keys to scroll to bouncing-box and hit enter
-* type in Y and hit enter
-* you will be editing the index.html file
-
-NOTE 1: If you receive an error that says os install command not found
-* enter the command ``` npm install -g opspark ``` and try again
-
-NOTE 2: If you are asked to enter your credentials
-* Type in your github username and hit enter
-* Type in Y and hit enter
-* Type in your password and hit enter. It won't look like you're typing but it's just hiding your text. It may ask you again and give an error but after that os install will work
+* go to your bash terminal (located at the bottom of the cloud9 workspace) and type in the command **os install**. Hit enter.
+* If prompted, login with your github credentials
+* Use your arrow keys to highlight your course and hit enter. hit enter again to confirm.
+* Use your arrow keys to highlight bouncing-box and hit enter. hit enter again to confirm.
+* open up the index.html file and press Run at the top of your workspace. You will be editing this file.
 
 ## A note about jQuery
 
@@ -192,7 +188,7 @@ the speed is subracted from the position, sending the box to the left.
 
 ### TODO 8: Make it Bounce
 
-## We need to decide when to change the direction: Conditionals!
+#### We need to decide when to change the direction: Conditionals!
 
 In our `update` function we have this if statement to make sure our box doesn't go off the right side of the screen. It says: If the position of my box moves past the right side of the board, move my box back to position 0.
 
