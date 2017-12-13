@@ -109,25 +109,7 @@ To animate the box, add the following code to the update function
 
 This changes our position on every call to `update` and then also moves the box to that position.
 
-### TODO 4: Hey box, come back!
-
-Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. The position of our box should never be greater than the width of the board. Add the following code **inside** the `update` function
-
-    if(position > boardWidth) {
-        position = 0;
-    }
-
-Your entire `update` function should look like this:
-
-    update = function() {
-        position = position + speed;
-        if(position > boardWidth) {
-         position = 0;
-        }
-        box.css('left', position);
-    };
-
-### TODO 5: Handling events
+### TODO 4: Handling events
 
 An event is just a particular thing that has happened. Some examples of **events** are:
 
@@ -146,7 +128,7 @@ Every time the user clicks the box, we want to reset the box to its starting pos
       position = 0;
     }
 
-### TODO 6: Keeping Score
+### TODO 5: Keeping Score
 
 We want to keep track of how many times the user has clicked on the box. 
 
@@ -160,18 +142,38 @@ and then add the following code to the `update` function
 
 What's going on here?
 
+### TODO 6: Hey box, come back!
+
+Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. The position of our box should never be greater than the width of the board which we've conveniently stored in a variable called `boardWidth`. 
+
+Let's get our box back on the screen `if` the `position` is greater than `boardWidth`. Add the following code **nested inside** the `update` function:
+
+    if(position > boardWidth) {
+        position = 0;
+    }
+
+Your entire `update` function should look like this:
+
+    update = function() {
+        position = position + speed;
+        if(position > boardWidth) {
+         position = 0;
+        }
+        box.css('left', position);
+    };
+
+
 ### TODO 7: Add Direction
 
-So we have the box loop accross the screen, but don't we want it to bounce off of the walls?
-Well, at least we want to make it look that way.
+So we have the box loop back to the left the screen, but don't we want it to bounce off of the walls?
 
 Before we can make it bounce we have to figure out how to make the box move from right to left.
 Right now our motion comes from the following line in the `update` function:
 
     position = position + speed;
     
-Since `speed` is positive, `position` keeps getting bigger and moves to further from the left. To make the box 
-move the other way we need to subtract the speed instead of adding it. We can do this by multiplying speed by -1 when we want it to move left and 1 when we want it to move to the right. 
+Since `speed` is positive, `position` keeps getting bigger and moves further from the left. To make the box 
+move the other way we need to make speed **negative**. 
 
 Add a variable `direction` that will tell us whether to add or subract the speed. **Do this just below the other variable declarations**
 
