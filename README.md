@@ -100,14 +100,12 @@ The following code (It's already there so you don't need to copy/paste this):
 
 Calls our `update` function every 50 milliseconds, which is about 20 times per second. 
 
-To animate the box, add the following code to the update function
+The `update` function is where we will modify the state of our program so that when it is called our box moves. To do so we need to change the `position` of the box and update the box's css accordingly. Add the following code to the update function:
 
     update = function() {
         position = position + speed;
         box.css('left', position);
     };
-
-This changes our position on every call to `update` and then also moves the box to that position.
 
 ### TODO 4: Handling events
 
