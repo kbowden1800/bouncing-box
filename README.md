@@ -205,13 +205,14 @@ Do this and confirm that the box bounces off the right wall. It should look like
     
 Now that your box bounces off the right wall you'll need to make it bounce off the left wall. What will be the condition? What do we want to do if that condition is true? Do this yourself!
 
-####Hint: At what position value do you want the box to "bounce" off the left wall?
+#### Hint: At what position value do you want the box to "bounce" off the left wall?
 
 ## Good Job
 
 You've written your first game! Here are some ways you can try and make your game even more awesome.
 
+### Can you make the box change color with each click? How about every 3 clicks?
+### Can you make the amount that the box speeds up with each click increase with every 3 clicks?
 ### Can you move the box up and down?
-### Can you change the size or color of the box with each click?
 ### Use the [background-image](http://www.w3schools.com/cssref/pr_background-image.asp) CSS property to change your box or the background
 
