@@ -33,7 +33,9 @@ You can recognize jQuery by its use of a very curious function `$()` Here is som
     box = $('.box');
     boardWidth = $('.board').width();
 
-### TODO 1: Create and Style Box
+## Lesson Steps
+
+### TODO 1: Learn how to move the box
 
 The HTML for our box has already been created for us:
 
@@ -55,11 +57,13 @@ Notice how you can change the appearance of the box using CSS! Now return those 
     top: 100px;
     left: 0px;
 
-### TODO 2: Learn how to move the box
+### TODO 2: Create Variables to Track Game Changes
 
-You can also change the appearance of the box using JavaScript. 
+By changing the `left` and `top` CSS properties of the box we are able to make it move. Our goal is animate the box so that it moves across the screen - but we can't just keep manually changing the values of these properties.
 
-Declare and initialize `position` and `points` variables to zero
+Solution: Let's create some variables that we can program to change these properties as our game progresses. We'll need variables to keep track of all aspects of our game that are changing: The box's position, how fast it's moving, and how many times it has been clicked. 
+
+Declare and initialize `position` and `points` variables to zero and `speed` to 10
 
     // TODO 2
     var position;
@@ -70,17 +74,14 @@ Declare and initialize `position` and `points` variables to zero
     points = 0;
     speed = 10;
 
-Below these variables add: 
+We will be using the following jQuery functions to make use of these changing variables. For now, don't worry about how they work, simply recognize these lines of code and what they do. Add them below your new variables:
     
-    box.css('left', position);
+    box.css('left', position);      // changes the 'left' css property of the box to value of var position
+    box.text(points);               // changes the text of the box to display the value of var points
 
-The .css() function changes the `left` css property of our box to the value held in our position variable. This property controls how far from the left side of the screen our box is. Change the value of the `position` variable and watch the box move.
+The box.css() function changes the `left` css property of our box element to the value of `var position`. As we change the value of `position`, the box will move. Change the value of the `position` variable to `100` and watch the box move!
 
-Below that add:
-
-    box.text(points);
-
-The .text() function changes the text content between our box's `<div class="box"></div>` tags. Change the `points` variable and watch how it changes the box. 
+The box.text() function changes the text content of our box element. Change the `points` variable and watch how it changes the points displayed.
 
 Before we move on, lets reset those variables to their starting values
 
@@ -90,17 +91,17 @@ Before we move on, lets reset those variables to their starting values
 
 ### TODO 3: Animating the box
 
-You can create animation on a web page by changing the appearance of an object over time. A traditional animation is made up of individual "frames" of still images. If you flip between these images rapidly and each image is just slightly different than the previous image, the viewer sees the scene as motion. We do the same thing in programming. 
+You can create animation on a web page by changing the appearance of an object over time. A traditional animation is made up of individual "frames" of still images that change slightly over time. If you flip between these images rapidly the viewer sees the scene as motion (think of a flipbook!). 
 
-The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. 
+We can do the same thing in programming by constantly changing the state of our program. The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. The function that we call will make slight changes every interval such that the state of our program is constantly animated.
 
-The following code (It's already there so you don't need to copy/paste this):
+The following code calls our `update` function every 50 milliseconds, which is about 20 times per second (It's already there so you don't need to copy/paste this):
     
     setInterval(update, 50);
 
-Calls our `update` function every 50 milliseconds, which is about 20 times per second. 
+The `update` function is where we will modify the state of our program so that when it is called our box moves. To do so we need to change the `position` of the box and update the box's css accordingly. 
 
-The `update` function is where we will modify the state of our program so that when it is called our box moves. To do so we need to change the `position` of the box and update the box's css accordingly. Add the following code to the update function:
+Add the following code to the update function:
 
     update = function() {
         position = position + speed;
@@ -173,7 +174,7 @@ Right now our motion comes from the following line in the `update` function:
 Since `speed` is positive, `position` keeps getting bigger and moves further from the left. To make the box 
 move the other way we need to make speed **negative**. 
 
-Add a variable `direction` that will tell us whether to add or subract the speed. **Do this just below the other variable declarations**
+At the top of your program where the other variables are declared, declare a variable `direction` that will tell us whether to add or subract the speed. **Do this just below the other variable declarations**
 
     var direction;
     direction = 1;
@@ -182,9 +183,7 @@ Now in the `update` function we want to re-assign the value of position like so:
 
     position = position + (speed * direction);
     
-When `direction` is set to 1 then this increases the position by `speed`,
-sending the box to the right.  But when `direction` is set to -1,
-the speed is subracted from the position, sending the box to the left.
+When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left.
 
 ### TODO 8: Make it Bounce
 
