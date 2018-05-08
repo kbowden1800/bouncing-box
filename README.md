@@ -101,9 +101,9 @@ The following code calls our `update` function every 50 milliseconds, which is a
 
 The `update` function is where we will modify the state of our program so that when it is called our box moves. To do so we need to change the `position` of the box and update the box's css accordingly. 
 
-Add the following code to the update function:
+Add the following code to the `update` function so it looks like this:
 
-    update = function() {
+    function update() {
         position = position + speed;
         box.css('left', position);
     };
@@ -122,7 +122,7 @@ JavaScript allows us to change the web page in response to **events**. The follo
 
 Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. Add the following code to the `handleBoxClick` function
 
-    handleBoxClick = function() {
+    function handleBoxClick() {
       speed = speed + 3;
       position = 0;
     }
@@ -153,7 +153,7 @@ Let's get our box back on the screen `if` the `position` is greater than `boardW
 
 Your entire `update` function should look like this:
 
-    update = function() {
+    function update() {
         position = position + speed;
         if(position > boardWidth) {
          position = 0;
