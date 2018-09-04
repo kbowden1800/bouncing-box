@@ -211,8 +211,17 @@ Now that your box bounces off the right wall you'll need to make it bounce off t
 
 You've written your first game! Here are some ways you can try and make your game even more awesome.
 
-### Can you make the box change color with each click? How about every 3 clicks?
-### Can you make the amount that the box speeds up with each click increase with every 3 clicks?
-### Can you move the box up and down?
-### Use the [background-image](http://www.w3schools.com/cssref/pr_background-image.asp) CSS property to change your box or the background
+### Challenge 1) Use the [background-image](http://www.w3schools.com/cssref/pr_background-image.asp) CSS property to change your box or the background
+
+### Challenge 2) Can you make the box change color with each click? How about every 3 clicks?
+
+### Challenge 3) Can you make the amount that the box speeds up with each click increase with every 3 clicks?
+
+### Challenge 4) Can you move the box up and down?
+Hint: To calculate the height of the window, simply add:
+
+    var boardHeight = $(window).height(); 
+
+
+
 
