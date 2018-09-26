@@ -103,7 +103,7 @@ The `update` function is where we will modify the state of our program so that w
 
 Add the following code to the `update` function so it looks like this:
 
-    function update() {
+    var update = function() {
         position = position + speed;
         box.css('left', position);
     };
@@ -122,7 +122,7 @@ JavaScript allows us to change the web page in response to **events**. The follo
 
 Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. Add the following code to the `handleBoxClick` function
 
-    function handleBoxClick() {
+    var handleBoxClick = function() {
       speed = speed + 3;
       position = 0;
     }
@@ -153,12 +153,13 @@ Let's get our box back on the screen `if` the `position` is greater than `boardW
 
 Your entire `update` function should look like this:
 
-    function update() {
+    var update = function() {
         position = position + speed;
         if(position > boardWidth) {
          position = 0;
         }
         box.css('left', position);
+        box.text(points);
     };
 
 
