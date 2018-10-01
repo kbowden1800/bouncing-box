@@ -10,7 +10,7 @@
 	<!-- BEGIN CSS -->
 	<style>
 		/* TODO 1 */
-		[class="box"] {
+		.box {
 			display: block;
 			position: absolute;
 			width: 70px;
@@ -34,17 +34,11 @@
 			'use strict'
 			/* global &*/
 
-			// Variable declarations
-			var box;
-			var boardWidth;
-			var update;
-			var handleBoxClick;
-
 			// jQuery stuff setup for you
-			box = $('.box');
-			boardWidth = $('.board').width();
-
-			// TODO 2
+			var box = $('.box');
+			var boardWidth = $('.board').width();
+	
+			// TODO 2 - Variable declarations 
 
 			
 			var update = function() {
@@ -60,9 +54,9 @@
 			};
 
 
-			//this calls update every 50 milliseconds
+			//this executes the update function code every 50 milliseconds
 			setInterval(update, 50);
-			// this calls the handle handleBoxClick function every time the box is clicked on
+			// this executes the handleBoxClick function code every time the box is clicked on
 			box.on('click', handleBoxClick);
 		})();
 	</script>
