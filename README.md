@@ -8,6 +8,28 @@ We're going to create a simple game where a box moves across the screen at an in
 
 Our goal for this game is to learn how to bring together HTML, CSS, and JavaScript. We use HTML to define our structure, CSS to define the style of that structure, and JavaScript in order to implement behavior. One of the primary ways we can implement behavior in JavaScript is by making modifications to the HTML and CSS in response to **events** which we will demonstrate by making this simple game. 
 
+### Take Away
+
+* Introduction to principals of animation
+* Introduction to cartesian coordinates
+* Using JavaScript to manipulate HTML elements
+* Using Variables to store data through the lifetime of a program
+* Using `if` statements to conditionally make changes to the game
+* Introduction to jQuery event handling
+
+### Work Flow
+
+For this program you will be given _**stencil code**_ found in the `index.html` file. This stencil will set up the program for you so that you can focus on the take aways of this project.
+
+#### TODOs
+To complete the assignment, below you'll find numbered **TODO** lesson steps.  While reading this lesson, whenever you come across a **TODO** step, you are expected to do this step, which may require you to create a file, or insert some HTML, CSS or JavaScript in the appropriate place.
+
+Please follow the instructions closely. Sometimes, however, we may be showing you code examples to make a point, so you only need to add code if we're explicitly telling you to do a lesson step, so please be aware of the actual lesson steps.
+
+#### Questions
+Throughout this README you will find **QUESTIONs** asking you to think critically about the code that you are writing. Whenever you encounter a **QUESTION** add a comment starting with `//` answering the question like so:
+
+    // QUESTION 1: After 50 milliseconds the position of the box will be 10
 
 ## Let's get started - installing bouncing box with `os install`
 NOTE: If you receive an error that says, `os install command not found` the opspark CLI is not installed. To install it, enter the command `npm intall -g opspark` in your bash terminal. 
@@ -102,7 +124,7 @@ Add the following code nested within the `update` function:
     position = position + speed;    // increase position on every update
     box.css('left', position);      // update box's CSS with the new position
 
-**QUESTION: If this code happens every 50 milliseconds, what will the value of position be after 200 milliseconds?** 
+**QUESTION 1: If this code happens every 50 milliseconds, what will the value of position be after 200 milliseconds?** 
 
 ### TODO 4: Handling events
 
@@ -121,13 +143,13 @@ Every time the user clicks the box, we want to reset the box to its starting pos
       position = 0;         // reset the position of the box to 0
       speed = speed + 3;    // increase the speed of the box on every click
       
-**QUESTION: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
+**QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
 
 ### TODO 5: Keeping Score
 
 We want to keep track of how many times the user has clicked on the box by increasing the points variable by 1 and by updating the text displayed by the box.
 
-**QUESTION: Where should this code go?**
+**QUESTION 3: Where should this code go?**
 
 Add the following code to your program: 
 
@@ -146,20 +168,21 @@ Let's get our box back on the screen `if` the `position` is greater than `boardW
     
 Now on every update the game will check to see if the box has hit the right wall and if it has it will reset the box back to the left side of the screen. 
 
-**QUESTION: But don't we want it to bounce instead of loop back to the start?** We will revisit this if block soon...
+**But don't we want it to bounce instead of loop back to the start?** We will revisit this if block soon...
 
 
 ### TODO 7: Add Direction
 
-So we have the box loop back to the left the screen, but don't we want it to bounce off of the walls?
+Making the box "bounce" is simply providing the instructions, "When the box hits the right wall start moving left".
 
-Before we can make it bounce we have to figure out how to make the box move from right to left.
+In the previous step we learned how to say, "When the box hits the right wall", but how do we tell the box to move left? 
+
 Right now our motion comes from the following line in the `update` function:
 
     position = position + speed;
     
 Since `speed` is positive, this code makes `position` increase and therefore move to the right. To make the box 
-move the other way we need to make position smaller after the box hits the right side of the screen!
+move the other way we need to make position smaller. Well, we could subtract speed instead of adding it but then we wouldn't be able to make the box move to the right anymore. Let's use a variable that we can switch to control the direction!
 
 At the top of your program under `TODO 2` where the other variables are declared, declare a variable `direction`:
 
@@ -190,7 +213,7 @@ Do this and confirm that the box bounces off the right wall. It should look like
         direction = -1;
     }
     
-**QUESTION: Now  you'll need to make it bounce off the left wall. What will be the condition? What should happen if that condition is true? Do this yourself!**
+**Now  you'll need to make it bounce off the left wall. What will be the condition? What should happen if that condition is true? Do this yourself!**
 
 Hint: At what position value do you want the box to "bounce" off the left wall?
 
