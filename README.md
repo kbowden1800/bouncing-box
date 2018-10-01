@@ -93,20 +93,16 @@ Before we move on, lets reset those variables to their starting values
 
 You can create animation on a web page by changing the appearance of an object over time. A traditional animation is made up of individual "frames" of still images that change slightly over time. If you flip between these images rapidly the viewer sees the scene as motion (think of a flipbook!). 
 
-We can do the same thing in programming by constantly changing the state of our program. The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. The function that we call will make slight changes every interval such that the state of our program is constantly animated.
+We can do the same thing in programming by constantly changing the state of our program. The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. 
 
-The following code calls our `update` function every 50 milliseconds, which is about 20 times per second (It's already there so you don't need to copy/paste this):
-    
-    setInterval(update, 50);
+In this program, the code `setInterval(update, 50);` calls our `update` function every 50 milliseconds, which is about 20 times per second. Each time it does we need to change the `position` of the box and update the box's css accordingly. 
 
-The `update` function is where we will modify the state of our program so that when it is called our box moves. To do so we need to change the `position` of the box and update the box's css accordingly. 
+Add the following code nested within the `update` function:
 
-Add the following code to the `update` function so it looks like this:
+    position = position + speed;    // increase position on every update
+    box.css('left', position);      // update box's CSS with the new position
 
-    var update = function() {
-        position = position + speed;
-        box.css('left', position);
-    };
+**QUESTION: If this code happens every 50 milliseconds, what will the value of position be after 200 milliseconds?** 
 
 ### TODO 4: Handling events
 
@@ -122,45 +118,35 @@ JavaScript allows us to change the web page in response to **events**. The follo
 
 Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. Add the following code to the `handleBoxClick` function
 
-    var handleBoxClick = function() {
-      speed = speed + 3;
-      position = 0;
-    }
+      position = 0;         // reset the position of the box to 0
+      speed = speed + 3;    // increase the speed of the box on every click
+      
+**QUESTION: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
 
 ### TODO 5: Keeping Score
 
-We want to keep track of how many times the user has clicked on the box. 
+We want to keep track of how many times the user has clicked on the box by increasing the points variable by 1 and by updating the text displayed by the box.
 
-Add the following code to the `handleBoxClick` function
+**QUESTION: Where should this code go?**
 
-     points = points + 1;
+Add the following code to your program: 
 
-and then add the following code to the `update` function
+     points = points + 1;   // increase the point total
+     box.text(points);      // update the new points total displayed by the box
 
-    box.text(points);
+### TODO 6: Hey box, come back! Checking for boundaries
 
-What's going on here?
-
-### TODO 6: Hey box, come back!
-
-Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. The position of our box should never be greater than the width of the board which we've conveniently stored in a variable called `boardWidth`. 
+Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. The position of our box should never be greater than the width of the board which we've conveniently stored in a variable called `boardWidth` whose value is calculated using jQuery!
 
 Let's get our box back on the screen `if` the `position` is greater than `boardWidth`. Add the following code **nested inside** the `update` function:
 
     if(position > boardWidth) {
         position = 0;
     }
+    
+Now on every update the game will check to see if the box has hit the right wall and if it has it will reset the box back to the left side of the screen. 
 
-Your entire `update` function should look like this:
-
-    var update = function() {
-        position = position + speed;
-        if(position > boardWidth) {
-         position = 0;
-        }
-        box.css('left', position);
-        box.text(points);
-    };
+**QUESTION: But don't we want it to bounce instead of loop back to the start?** We will revisit this if block soon...
 
 
 ### TODO 7: Add Direction
@@ -172,19 +158,19 @@ Right now our motion comes from the following line in the `update` function:
 
     position = position + speed;
     
-Since `speed` is positive, `position` keeps getting bigger and moves further from the left. To make the box 
-move the other way we need to make speed **negative**. 
+Since `speed` is positive, this code makes `position` increase and therefore move to the right. To make the box 
+move the other way we need to make position smaller after the box hits the right side of the screen!
 
-At the top of your program where the other variables are declared, declare a variable `direction` that will tell us whether to add or subract the speed. **Do this just below the other variable declarations**
+At the top of your program under `TODO 2` where the other variables are declared, declare a variable `direction`:
 
     var direction;
     direction = 1;
     
-Now in the `update` function we want to re-assign the value of position like so:
+Now in the `update` function, replace the code that changes `position` so that it re-assigns the value of position like so:
 
     position = position + (speed * direction);
     
-When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left.
+When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left. Now we need to decide when to change it!
 
 ### TODO 8: Make it Bounce
 
@@ -204,9 +190,9 @@ Do this and confirm that the box bounces off the right wall. It should look like
         direction = -1;
     }
     
-Now that your box bounces off the right wall you'll need to make it bounce off the left wall. What will be the condition? What do we want to do if that condition is true? Do this yourself!
+**QUESTION: Now  you'll need to make it bounce off the left wall. What will be the condition? What should happen if that condition is true? Do this yourself!**
 
-#### Hint: At what position value do you want the box to "bounce" off the left wall?
+Hint: At what position value do you want the box to "bounce" off the left wall?
 
 ## Good Job
 
