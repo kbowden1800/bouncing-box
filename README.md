@@ -148,6 +148,13 @@ We did it! We've achieved animation!
 
 **Refresh your program and watch the box move!** 
 
+## Take a break!
+
+Now that we have achieved animation, go back and read through the first 3 **TODOs** and make sure that you understand how this program works so far. Ask an isntructor for help if you are still confused.
+
+Then, stand up and take a 5 minute stretch break! You deserve it.
+
+
 ### TODO 4: Handling events
 
 An event is just a particular thing that has happened. Some examples of **events** are:
