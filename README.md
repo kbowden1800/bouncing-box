@@ -144,6 +144,10 @@ Right below the code you just added, add the following code:
     
 Using the same jQuery function that we saw in TODO 2 we can make the box move to the new value of position. Since this code is also included in the `update` function, every time the position gets updated, so will the box's CSS.
 
+We did it! We've achieved animation!
+
+**Refresh your program and watch the box move!** 
+
 ### TODO 4: Handling events
 
 An event is just a particular thing that has happened. Some examples of **events** are:
