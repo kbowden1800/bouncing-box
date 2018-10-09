@@ -157,33 +157,33 @@ Then, stand up and take a 5 minute stretch break! You deserve it.
 
 ### TODO 4: Handling events
 
-An event is just a particular thing that has happened. Some examples of **events** are:
+Our next goal is to make the box clickable. A click is an example of an event. Some other examples of **events** are:
 
 - A timer going off
-- The user clicking on something
+- The user hovers their mouse over an area.
 - the web page has finished loading
 
 JavaScript allows us to change the web page in response to **events**. The following code calls the `handleBoxClick` function every time the box is clicked. **(It's already there so you do not need to copy/paste this)**
 
     box.on('click', handleBoxClick);
 
-Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. Add the following code to the `handleBoxClick` function
+`handleBoxClick` is just another function that performs another task. For this function, the first task it is responsible for is to keep track of how many times the user has clicked on the box by increasing the points variable by 1 and by updating the text displayed by the box.
 
-      position = 0;         // reset the position of the box to 0
-      speed = speed + 3;    // increase the speed of the box on every click
-      
-**QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
-
-### TODO 5: Keeping Score
-
-We want to keep track of how many times the user has clicked on the box by increasing the points variable by 1 and by updating the text displayed by the box.
-
-**QUESTION 3: Where should this code go?**
-
-Add the following code to your program: 
+Add the following code to the `handleBoxClick` function
 
      points = points + 1;   // increase the point total
      box.text(points);      // update the new points total displayed by the box
+      
+### TODO 5: Keeping Score
+
+Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. 
+
+Add the following code to the `handleBoxClick` function just below the code from TODO 4:
+
+      position = 0;         // reset the position of the box to 0
+      speed = speed + 3;    // increase the speed of the box on every click
+
+**QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
 
 ### TODO 6: Hey box, come back! Checking for boundaries
 
