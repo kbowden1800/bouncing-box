@@ -59,13 +59,13 @@ You can recognize jQuery by its use of a very curious function `$()` Here is som
 
 ### TODO 1: Learn how to move the box
 
-The HTML for our box has already been created for us:
+Within the `index.html` file, find the HTML for our box which has already been created for us:
 
     <body class="board">
       <div class="box">?</div>
     </body>
 
-Find the CSS that styles the box and change the following properties:
+Now find the CSS that styles the box and change the following properties:
 
 - `left`
 - `top` 
@@ -85,25 +85,27 @@ By changing the `left` and `top` CSS properties of the box we are able to make i
 
 Solution: Let's create some variables that we can program to change these properties as our game progresses. We'll need variables to keep track of all aspects of our game that are changing: The box's position, how fast it's moving, and how many times it has been clicked. 
 
-Declare and initialize `position` and `points` variables to zero and `speed` to 10
+Below `TODO 2` Declare and initialize `position` and `points` variables to zero and `speed` to 10
 
     // TODO 2
-    var position;
-    var points;
-    var speed;
+    var position;       // reference for the x-coordinate of our box
+    var points;         // reference for the points displayed on the box
+    var speed;          // reference for how fast the box moves
 
     position = 0;
     points = 0;
     speed = 10;
-
-We will be using the following jQuery functions to make use of these changing variables. For now, don't worry about how they work, simply recognize these lines of code and what they do. Add them below your new variables:
+    
+We will be using the following jQuery functions to make use of these changing variables. Add them below your new variables:
     
     box.css('left', position);      // changes the 'left' css property of the box to value of var position
     box.text(points);               // changes the text of the box to display the value of var points
 
-The box.css() function changes the `left` css property of our box element to the value of `var position`. As we change the value of `position`, the box will move. Change the value of the `position` variable to `100` and watch the box move!
+The box.css() function changes the `left` css property of our box element to the value stored in `position`. Change the value of the `position` variable to `100` and watch the box move! The property is called "left" because it measures the distance from the left side of the screen. So, as we increase the value of `position`, the box will move to the right (and away from the left side of the screen).
 
 The box.text() function changes the text content of our box element. Change the `points` variable and watch how it changes the points displayed.
+
+Remember these functions - we'll be using them shortly!
 
 Before we move on, lets reset those variables to their starting values
 
@@ -111,20 +113,36 @@ Before we move on, lets reset those variables to their starting values
     points = 0;  
     speed = 10;
 
-### TODO 3: Animating the box
+### TODO 3: Update the position of the box
 
 You can create animation on a web page by changing the appearance of an object over time. A traditional animation is made up of individual "frames" of still images that change slightly over time. If you flip between these images rapidly the viewer sees the scene as motion (think of a flipbook!). 
 
-We can do the same thing in programming by constantly changing the state of our program. The `setInterval` function allows us to setup a timer, where we call a function every so often. **How often**, the time between function calls, is called the interval. That interval is expressed in milliseconds, or thousandths of a second. 
+We can do the same thing in programming by constantly changing the state of our program using a *function*. **A function is a reuseable block of code that performs some set of tasks**. If that function's task is to change the location of our box and we call upon it 20 times per second (20 FPS) then we can achieve animation! 
 
-In this program, the code `setInterval(update, 50);` calls our `update` function every 50 milliseconds, which is about 20 times per second. Each time it does we need to change the `position` of the box and update the box's css accordingly. 
+This requires 2 things: 
 
-Add the following code nested within the `update` function:
+1) Create the function so that it repositions the box when called upon: The outline of the function has already been created for us and it is called `update`. Find the `update` function and inside of the curly braces add the following code below `// TODO 3 / 6 / 7 / 8`:
 
-    position = position + speed;    // increase position on every update
-    box.css('left', position);      // update box's CSS with the new position
+        position = position + speed;    // increase position on every update
+        console.log("new position: " + position);
+    
+2) Call on the function 20 times/second: This is also already done for us! At the bottom of the program you will find the code `setInterval(update, 50);`. This special function instructs our `update` function to run every `50` milliseconds, which is 20 times per second! Each time the function is called the `position` variable will change and will be printed to the console.
+
+**Run the program and open up the console in the new chrome tab. See how the position changes?**
 
 **QUESTION 1: If this code happens every 50 milliseconds, what will the value of position be after 200 milliseconds?** 
+
+### TODO 3 Part 2: Wait, it's not moving?!?!
+
+Wait... isn't that supposed to make the box move? 
+
+Well... not quite. We've told the computer to increase the value of the `position` variable on every update but we haven't told the computer move the box to this new position. We have to be *very* specific with our instructions.
+
+Right below the code you just added, add the following code:
+
+    box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+    
+Using the same jQuery function that we saw in TODO 2 we can make the box move to the new value of position. Since this code is also included in the `update` function, every time the position gets updated, so will the box's CSS.
 
 ### TODO 4: Handling events
 
