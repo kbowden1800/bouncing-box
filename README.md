@@ -36,14 +36,14 @@ Throughout this README you will find **QUESTIONs** asking you to think criticall
 - [Installation](#installation)
 - [jQuery](#a-note-about-jQuery)
 - [Lesson Steps](#lesson-steps)
-    - [TODO 1: Learn how to move the box](#todo-1--learn-how-to-move-the-box)
-    - [TODO 2: Create Variables to Track Game Changes](#todo-2--create-variables-to-track-game-changes)
-    - [TODO 3: Update the position of the box](#todo-3--update-the-position-of-the-box)
-    - [TODO 4: Handling events](#todo-4--handling-events)
-    - [TODO 5: Keeping Score](#todo-5--keeping-score)
-    - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6--hey-box,-come-back!-checking-for-boundaries)
-    - [TODO 7: Add Direction](#todo-7--add-direction)
-    - [TODO 8: Make it Bounce](#todo-8--make-it-bounce)
+    - [TODO 1: Learn how to move the box](#todo-1:-learn-how-to-move-the-box)
+    - [TODO 2: Create Variables to Track Game Changes](#todo-2:-create-variables-to-track-game-changes)
+    - [TODO 3: Update the position of the box](#todo-3:-update-the-position-of-the-box)
+    - [TODO 4: Handling events](#todo-4:-handling-events)
+    - [TODO 5: Keeping Score](#todo-5:-keeping-score)
+    - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6:-hey-box,-come-back!-checking-for-boundaries)
+    - [TODO 7: Add Direction](#todo-7:-add-direction)
+    - [TODO 8: Make it Bounce](#todo-8:-make-it-bounce)
 
 ## Installation
 * Make sure your github and cloud9 accounts are linked to Greenlight
