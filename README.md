@@ -30,10 +30,22 @@ Please follow the instructions closely. Sometimes, however, we may be showing yo
 Throughout this README you will find **QUESTIONs** asking you to think critically about the code that you are writing. Whenever you encounter a **QUESTION** add a comment starting with `//` answering the question like so:
 
     // QUESTION 1: After 50 milliseconds the position of the box will be 10
+ 
+ **Table of Contents**
+ 
+-[Installation](#installation)
+-[jQuery](#a-note-aboutjQuery)
+-[Lesson Steps](#lesson-steps)
+    -[TODO 1: Learn how to move the box](#todo-1:-learn-how-to-move-the-box)
+    -[TODO 2: Create Variables to Track Game Changes](#todo-2:-create-variables-to-track-game-changes)
+    -[TODO 3: Update the position of the box](#todo-3:-update-the-position-of-the-box)
+    -[TODO 4: Handling events](#todo-4:-handling-events)
+    -[TODO 5: Keeping Score](#todo-5:-keeping-score)
+    -[TODO 6: Hey box, come back! Checking for boundaries](#todo-6:-hey-box,-come-back!-checking-for-boundaries)
+    -[TODO 7: Add Direction](#todo-7:-add-direction)
+    -[TODO 8: Make it Bounce](#todo-8:-make-it-bounce)
 
-## Let's get started - installing bouncing box with `os install`
-NOTE: If you receive an error that says, `os install command not found` the opspark CLI is not installed. To install it, enter the command `npm intall -g opspark` in your bash terminal. 
-
+## Installation
 * Make sure your github and cloud9 accounts are linked to Greenlight
 * Open your first website workspace
 * go to your bash terminal (located at the bottom of the cloud9 workspace) and type in the command **os install**. Hit enter.
@@ -41,6 +53,8 @@ NOTE: If you receive an error that says, `os install command not found` the opsp
 * Use your arrow keys to highlight your course and hit enter. hit enter again to confirm.
 * Use your arrow keys to highlight bouncing-box and hit enter. hit enter again to confirm.
 * open up the index.html file and press Run at the top of your workspace. You will be editing this file.
+
+NOTE: If you receive an error that says, `os install command not found` the opspark CLI is not installed. To install it, enter the command `npm intall -g opspark` in your bash terminal. 
 
 ## A note about jQuery
 
