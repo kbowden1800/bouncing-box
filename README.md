@@ -96,14 +96,16 @@ Below `TODO 2` Declare and initialize `position` and `points` variables to zero 
     points = 0;
     speed = 10;
     
-We will be using the following jQuery functions to make use of these changing variables. Add them below your new variables:
+These values will continuously be recalculated throughout our program. We will be using the following jQuery functions to make use of these changing variables. Add them below your new variables:
     
-    box.css('left', position);      // changes the 'left' css property of the box to value of var position
-    box.text(points);               // changes the text of the box to display the value of var points
+    box.css('left', position);      // moves the box to the x-coordinate of <position> 
+    box.text(points);               // changes the text of the box to display the value of <points>
 
-The box.css() function changes the `left` css property of our box element to the value stored in `position`. Change the value of the `position` variable to `100` and watch the box move! The property is called "left" because it measures the distance from the left side of the screen. So, as we increase the value of `position`, the box will move to the right (and away from the left side of the screen).
+- `position` is the x-coordinate of our box. The box.css() function changes the `left` css property of our box element to the value stored in `position`. Change the value of the `position` variable to `100` and watch the box move! 
 
-The box.text() function changes the text content of our box element. Change the `points` variable and watch how it changes the points displayed.
+*The property is called "left" because it measures the distance from the left side of the screen. So, as we increase the value of `position`, the box will move to the right (and away from the left side of the screen).*
+
+- The box.text() function changes the text content of our box element. Change the `points` variable and watch how it changes the points displayed.
 
 Remember these functions - we'll be using them shortly!
 
