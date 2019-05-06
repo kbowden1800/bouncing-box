@@ -64,10 +64,10 @@ We are going to be using [jQuery](https://jquery.com) for this exercise. You can
 
 jQuery is a powerful library which makes building web pages easier. It is also tremendously popular. If you are doing web development in 2015, you will likely run into jQuery. That is why we are introducing just a tiny bit of it here. 
 
-You can recognize jQuery by its use of a very curious function `$()` Here is some of the jQuery code we use in this page:
+You can recognize jQuery by its use of a very curious function `jQuery()` Here is some of the jQuery code we use in this page:
 
-    box = $('.box');
-    boardWidth = $('.board').width();
+    box = jQuery('.box');
+    boardWidth = jQuery('.board').width();
 
 ## Lesson Steps
 
@@ -271,7 +271,7 @@ You've written your first game! Here are some ways you can try and make your gam
 ### Challenge 2) Can you move the box up and down?
 Hint: To calculate the height of the window, simply add:
 
-    var boardHeight = $(window).height(); 
+    var boardHeight = jQuery(window).height(); 
 
 ### Challenge 3) Can you make the box start at a random location on every click?
 
