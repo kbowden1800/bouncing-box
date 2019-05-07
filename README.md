@@ -139,7 +139,7 @@ This requires 2 things:
 
 1) Create the function so that it repositions the box when called upon: The outline of the function has already been created for us and it is called `update`. Find the `update` function and inside of the curly braces add the following code below `// TODO 3 / 6 / 7 / 8`:
 
-        position = position + speed;    // increase position on every update
+        position += speed;    // increment position by speed on every update
         console.log("new position: " + position);
     
 2) Call on the function 20 times/second: This is also already done for us! At the bottom of the program you will find the code `setInterval(update, 50);`. This special function instructs our `update` function to run every `50` milliseconds, which is 20 times per second! Each time the function is called the `position` variable will change and will be printed to the console.
@@ -187,7 +187,7 @@ JavaScript allows us to change the web page in response to **events**. The follo
 
 Add the following code to the `handleBoxClick` function
 
-     points = points + 1;   // increase the point total
+     points += 1;           // increase the point total
      box.text(points);      // update the new points total displayed by the box
       
 ### TODO 5: Keeping Score
@@ -197,7 +197,7 @@ Every time the user clicks the box, we want to reset the box to its starting pos
 Add the following code to the `handleBoxClick` function just below the code from TODO 4:
 
       position = 0;         // reset the position of the box to 0
-      speed = speed + 3;    // increase the speed of the box on every click
+      speed += 3;    // increase the speed of the box on every click
 
 **QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
 
@@ -222,23 +222,30 @@ Making the box "bounce" is simply providing the instructions, "When the box hits
 
 In the previous step we learned how to say, "When the box hits the right wall", but how do we tell the box to move left? 
 
-Right now our motion comes from the following line in the `update` function:
+Right now our motion comes from the `update` function:
 
-    position = position + speed;
+    position += speed;
+    box.css('left', position);
     
 Since `speed` is positive, this code makes `position` increase and therefore move to the right. To make the box 
-move the other way we need to make position smaller. Well, we could subtract speed instead of adding it but then we wouldn't be able to make the box move to the right anymore. Let's use a variable that we can switch to control the direction!
+move the other way we need to make position smaller. 
+
+We could subtract speed instead of adding it but then we wouldn't be able to make the box move to the right anymore. Let's use a variable that we can switch to control the direction!
 
 At the top of your program under `TODO 2` where the other variables are declared, declare a variable `direction`:
 
     var direction;
     direction = 1;
     
-Now in the `update` function, replace the code that changes `position` so that it re-assigns the value of position like so:
+Now in the `update` function add in the following line such that the `speed` is multiplied by `direction` before being added to `position`. Your code should look like this:
 
-    position = position + (speed * direction);
+    speed *= direction;   // speed is positive when direction = 1, speed is negative when direction is -1;
+    position += speed;    // increment position by speed on every update
+    box.css('left', position);
     
-When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left. Now we need to decide when to change it!
+When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left. 
+
+Now we need to decide when to change `direction` from `1` to `-1`, or from `-1` to `1`!
 
 ### TODO 8: Make it Bounce
 
@@ -251,12 +258,15 @@ In our `update` function we have this if statement to make sure our box doesn't 
     }
     
  
-We need to change this bounds-check so that instead of resetting the position of our box to 0 we change the direction to -1.
-Do this and confirm that the box bounces off the right wall. It should look like this:
+Modify your code such that it now looks like this:
 
     if(position > boardWidth) {
         direction = -1;
     }
+    
+Do this and confirm that the box bounces off the right wall.
+
+Instead of resetting the position back to 0 when it hits the wall, we want the box to "bounce". This just means the box changes direction. 
     
 **Now  you'll need to make it bounce off the left wall. What will be the condition? What should happen if that condition is true? Do this yourself!**
 
