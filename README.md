@@ -330,7 +330,21 @@ You will also likely need to make some new variables to track the vertical posit
 
 ### Challenge 3) Can you make the box start at a random location on every click?
 
+To create a random numerical value you can use the method `Math.random()` which returns a random digit between 0 and 0.99999. To get a random number between 0 and 100 we can write:
+
+    var randNum = Math.random() * 100;
+    
+Once you generate this random number, where would you use it?
+
 ### Challenge 3) Can you make the box change color with each click? How about every 3 clicks?
+
+The color of the box can be changed using the method `box.css()` like so:
+
+    box.css('background-color', "rgb(<red>, <green>, <blue>");
+    
+RGB colors are a combination of 3 numbers, one representing the amount of red in the color, one for green, and one for blue. These numbers range from 0 - 255. Try generating 3 random numbers using the `Math.random()` function (see above).
+
+Lastly, you'll notice that `rgb(red, green, blue)` looks like a method call, and it is but we need to put it in quotes and treat it like a String.
 
 ### Challenge 5) Can you make the amount that the box speeds up with each click increase with every 3 clicks?
 
