@@ -325,6 +325,8 @@ You've written your first game! Here are some ways you can try and make your gam
 Hint: To calculate the height of the window, simply add:
 
     var boardHeight = jQuery(window).height(); 
+    
+You will also likely need to make some new variables to track the vertical position, speed, and direction of the box.
 
 ### Challenge 3) Can you make the box start at a random location on every click?
 
