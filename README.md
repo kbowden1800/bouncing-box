@@ -42,8 +42,7 @@ Throughout this README you will find **QUESTIONs** asking you to think criticall
     - [TODO 4: Handling events](#todo-4-handling-events)
     - [TODO 5: Speeding Up](#todo-5-speeding-up)
     - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6-hey-box,-come-back!-checking-for-boundaries)
-    - [TODO 7: Add Direction](#todo-7-add-direction)
-    - [TODO 8: Make it Bounce](#todo-8-make-it-bounce)
+    - [TODO 7: Make it Bounce](#todo-7-make-it-bounce)
 
 ## Installation
 * Make sure your github and cloud9 accounts are linked to Greenlight
@@ -105,10 +104,12 @@ Below `TODO 2` Declare and initialize `position` and `points` variables to zero 
     var position;       // reference for the x-coordinate of our box
     var points;         // reference for the points displayed on the box
     var speed;          // reference for how fast the box moves
+    var direction       // reference for the direction the box is moving: 1 means right, -1 means left
 
     position = 0;
     points = 0;
     speed = 10;
+    direction = 1;
     
 These values will continuously be recalculated throughout our program. We will be using the following jQuery functions to make use of these changing variables. Add them below your new variables:
     
@@ -128,6 +129,7 @@ Before we move on, lets reset those variables to their starting values
     position = 0;  
     points = 0;  
     speed = 10;
+    direction = 1;
 
 ### TODO 3: Update the position of the box
 
@@ -163,6 +165,14 @@ Using the same jQuery function that we saw in TODO 2 we can make the box move to
 We did it! We've achieved animation!
 
 **Refresh your program and watch the box move!** 
+
+At this point your `update` function should look like this:
+
+    function update() {
+        position += speed;    // increment position by speed on every update
+        console.log("new position: " + position);
+        box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+    }
 
 ## Take a break!
 
@@ -203,76 +213,107 @@ Add the following code to the `handleBoxClick` function just below the code from
 
 **QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks if speed starts at 10?** 
 
+At this point your `handleBoxClick` function should look like this:
+
+    function handleBoxClick() {
+        points += 1;           // increase the point total
+        box.text(points);      // update the new points total displayed by the box
+        position = 0;         // reset the position of the box to 0
+        speed += 3;    // increase the speed of the box on every click
+    }
+
 ### TODO 6: Hey box, come back! Checking for boundaries
 
-Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. The position of our box should never be greater than the width of the board which we've conveniently stored in a variable called `boardWidth` whose value is calculated using jQuery!
+Each time we call the `update` function the position variable gets larger and larger until eventually our box has gone off the screen. 
 
-Let's get our box back on the screen `if` the `position` is greater than `boardWidth`. Add the following code **nested inside** the `update` function:
+The position of our box should never be greater than the width of the board which we've conveniently stored in a variable called `boardWidth` whose value is calculated using jQuery!
+
+Let's use a Conditional Statement to check to see `if` the `position` is greater than `boardWidth` and log a message to the console if it has. Add the following code **nested inside** the `update` function *just before calling the `box.css()` method:
 
     if(position > boardWidth) {
-        position = 0;
+        console.log("Right Wall Hit");
     }
     
-Now on every update the game will check to see if the box has hit the right wall and if it has it will reset the box back to the left side of the screen. 
+Now on every update the game will check to see if the box has hit the right wall and if it has it log a message to the console.
 
-**But don't we want it to bounce instead of loop back to the start?** We will revisit this if block soon...
+At this point your `update` function should look like this:
+
+    function update() {
+        position += speed;    // increment position by speed on every update
+        console.log("new position: " + position);
+        
+        if(position > boardWidth) {
+            console.log("Right Wall Hit");
+        }
+        
+        box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+    }
+
+Now we know when the box is hitting the wall, but what do we do now to make it bounce?
 
 
-### TODO 7: Add Direction
+### TODO 7: Make it Bounce
 
-Making the box "bounce" is simply providing the instructions, "When the box hits the right wall start moving left".
+Making the box "bounce" is simply providing the instructions, "When the box hits the right wall start moving left". Well the `direction` variable should control the direction we're moving in. As we'll see in a moment, if `direction = 1` our box will move to the right and if `direction = -1` it will move to the left.
 
-In the previous step we learned how to say, "When the box hits the right wall", but how do we tell the box to move left? 
+**Nested inside the if statement** change the value of direction to `-1`:
 
-Right now our motion comes from the `update` function:
+    if (position > boardWidth) {
+        console.log("Right Wall Hit");
+        direction = -1;
+    }
+
+#### Save, Refresh
+
+At this point if you save your code and refresh your game nothing will happen. So what gives?
+
+Well, if you print out the value of `direction` after this change occurs you will see that it does in fact change value. 
+
+    if (position > boardWidth) {
+        console.log("Right Wall Hit");
+        direction = -1;
+        console.log(direction);
+    }
+
+#### Save, Refresh
+
+However, at no point are we actually *using* the `direction` variable to affect the `position` of our box. Right now our motion comes from the first few lines of the `update` function where there is no mention of `direction`:
 
     position += speed;
     box.css('left', position);
+
+Since `speed` is positive, adding `speed` to `position` will make it increase and therefore move to the right. To make the box 
+move the other way we need to subtract `speed` from `position` to make it smaller!
     
-Since `speed` is positive, this code makes `position` increase and therefore move to the right. To make the box 
-move the other way we need to make position smaller. 
-
-We could subtract speed instead of adding it but then we wouldn't be able to make the box move to the right anymore. Let's use a variable that we can switch to control the direction!
-
-At the top of your program under `TODO 2` where the other variables are declared, declare a variable `direction`:
-
-    var direction;
-    direction = 1;
+In the `update` function add in the following line such that the `speed` is multiplied by `direction` *before* being added to `position`:
     
-Now in the `update` function add in the following line such that the `speed` is multiplied by `direction` before being added to `position`. Your code should look like this:
-
-    speed *= direction;   // speed is positive when direction = 1, speed is negative when direction is -1;
+    speed *= direction;
     position += speed;    // increment position by speed on every update
-    box.css('left', position);
-    
-When `direction` is set to 1 then `speed` is added to position and the box moves to the right. But when `direction` is set to -1,the speed is subracted from the position, sending the box to the left. 
+    console.log("new position: " + position);
 
-Now we need to decide when to change `direction` from `1` to `-1`, or from `-1` to `1`!
+At this point your `update` function should look like this:
 
-### TODO 8: Make it Bounce
-
-#### We need to decide when to change the direction: Conditionals!
-
-In our `update` function we have this if statement to make sure our box doesn't go off the right side of the screen. It says: If the position of my box moves past the right side of the board, move my box back to position 0.
-
-    if(position > boardWidth) {
-        position = 0;
+    function update() {
+        speed *= direction;
+        position += speed;    // increment position by speed on every update
+        console.log("new position: " + position);
+        
+        if(position > boardWidth) {
+            console.log("Right Wall Hit");
+            direction = -1;
+            console.log(direction);
+        }
+        
+        box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
     }
-    
- 
-Modify your code such that it now looks like this:
 
-    if(position > boardWidth) {
-        direction = -1;
-    }
+### TODO 8: Make it Bounce Again!
     
-Do this and confirm that the box bounces off the right wall.
+Now  you'll need to make it bounce off the left wall. 
 
-Instead of resetting the position back to 0 when it hits the wall, we want the box to "bounce". This just means the box changes direction. 
-    
-**Now  you'll need to make it bounce off the left wall. What will be the condition? What should happen if that condition is true? Do this yourself!**
-
-Hint: At what position value do you want the box to "bounce" off the left wall?
+- At what value of `position` do you want the box to "bounce" off the left wall?
+- What comparison operator will you use? Does `>` make sense to use here?
+- What should you do to make the box move right after hitting the left wall?
 
 ## Good Job
 
