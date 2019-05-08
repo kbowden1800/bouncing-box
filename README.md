@@ -40,7 +40,7 @@ Throughout this README you will find **QUESTIONs** asking you to think criticall
     - [TODO 2: Create Variables to Track Game Changes](#todo-2-create-variables-to-track-game-changes)
     - [TODO 3: Update the position of the box](#todo-3-update-the-position-of-the-box)
     - [TODO 4: Handling events](#todo-4-handling-events)
-    - [TODO 5: Keeping Score](#todo-5-keeping-score)
+    - [TODO 5: Speeding Up](#todo-5-speeding-up)
     - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6-hey-box,-come-back!-checking-for-boundaries)
     - [TODO 7: Add Direction](#todo-7-add-direction)
     - [TODO 8: Make it Bounce](#todo-8-make-it-bounce)
@@ -190,16 +190,18 @@ Add the following code to the `handleBoxClick` function
      points += 1;           // increase the point total
      box.text(points);      // update the new points total displayed by the box
       
-### TODO 5: Keeping Score
+Now, whenever the box is clicked, the `handleBoxClick` function will be called and it will respond by incrementing `point` by 1 and updating the score shown on the box
 
-Every time the user clicks the box, we want to reset the box to its starting position and make the game harder by increasing the speed of the box. 
+### TODO 5: Speeding Up
+
+Every time the user clicks the box, we also want to reset the box to its starting position and make the game harder by increasing the speed of the box. 
 
 Add the following code to the `handleBoxClick` function just below the code from TODO 4:
 
       position = 0;         // reset the position of the box to 0
       speed += 3;    // increase the speed of the box on every click
 
-**QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks?** 
+**QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks if speed starts at 10?** 
 
 ### TODO 6: Hey box, come back! Checking for boundaries
 
