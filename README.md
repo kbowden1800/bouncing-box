@@ -85,6 +85,8 @@ Now find the CSS that styles the box and change the following properties:
 - `width`
 - `height`
 
+#### Save, Refresh, Observe
+
 Notice how you can change the appearance of the box using CSS! Now return those to their original values
 
     width: 70px;
@@ -146,6 +148,8 @@ This requires 2 things:
     
 2) Call on the function 20 times/second: This is also already done for us! At the bottom of the program you will find the code `setInterval(update, 50);`. This special function instructs our `update` function to run every `50` milliseconds, which is 20 times per second! Each time the function is called the `position` variable will change and will be printed to the console.
 
+#### Save, Refresh, Observe
+
 **Run the program and open up the console in the new chrome tab (right click and choose inspect, then select the "console" tab). See how the value of position changes?**
 
 **QUESTION 1: If this code happens every 50 milliseconds, what will the value of position be after 200 milliseconds?** 
@@ -160,11 +164,11 @@ Right below the code you just added, add the following code:
 
     box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
     
+#### Save, Refresh, Observe
+
 Using the same jQuery function that we saw in TODO 2 we can make the box move to the new value of position. Since this code is also included in the `update` function, every time the position gets updated, so will the box's CSS.
 
 We did it! We've achieved animation!
-
-**Refresh your program and watch the box move!** 
 
 At this point your `update` function should look like this:
 
@@ -179,7 +183,6 @@ At this point your `update` function should look like this:
 Now that we have achieved animation, go back and read through the first 3 **TODOs** and make sure that you understand how this program works so far. Ask an isntructor for help if you are still confused.
 
 Then, stand up and take a 5 minute stretch break! You deserve it.
-
 
 ### TODO 4: Handling events
 
@@ -199,7 +202,9 @@ Add the following code to the `handleBoxClick` function
 
      points += 1;           // increase the point total
      box.text(points);      // update the new points total displayed by the box
-      
+
+#### Save, Refresh, Observe
+
 Now, whenever the box is clicked, the `handleBoxClick` function will be called and it will respond by incrementing `point` by 1 and updating the score shown on the box
 
 ### TODO 5: Speeding Up
@@ -210,6 +215,8 @@ Add the following code to the `handleBoxClick` function just below the code from
 
       position = 0;         // reset the position of the box to 0
       speed += 3;    // increase the speed of the box on every click
+
+#### Save, Refresh, Observe
 
 **QUESTION 2: If this code happens every time you click the box, what will the value of speed be after 3 clicks if speed starts at 10?** 
 
@@ -233,7 +240,9 @@ Let's use a Conditional Statement to check to see `if` the `position` is greater
     if(position > boardWidth) {
         console.log("Right Wall Hit");
     }
-    
+
+#### Save, Refresh, Observe
+
 Now on every update the game will check to see if the box has hit the right wall and if it has it log a message to the console.
 
 At this point your `update` function should look like this:
@@ -263,7 +272,7 @@ Making the box "bounce" is simply providing the instructions, "When the box hits
         direction = -1;
     }
 
-#### Save, Refresh
+#### Save, Refresh, Observe
 
 At this point if you save your code and refresh your game nothing will happen. So what gives?
 
@@ -275,7 +284,7 @@ Well, if you print out the value of `direction` after this change occurs you wil
         console.log(direction);
     }
 
-#### Save, Refresh
+#### Save, Refresh, Observe
 
 However, at no point are we actually *using* the `direction` variable to affect the `position` of our box. Right now our motion comes from the first few lines of the `update` function where there is no mention of `direction`:
 
@@ -285,17 +294,19 @@ However, at no point are we actually *using* the `direction` variable to affect 
 Since `speed` is positive, adding `speed` to `position` will make it increase and therefore move to the right. To make the box 
 move the other way we need to subtract `speed` from `position` to make it smaller!
     
-In the `update` function add in the following line such that the `speed` is multiplied by `direction` *before* being added to `position`:
+In the `update` function multiply `speed` by `direction` *before* being added to `position`:
     
-    speed *= direction;
-    position += speed;    // increment position by speed on every update
+    position += speed * direction;    // increment position by speed on every update
     console.log("new position: " + position);
+    
+#### Save, Refresh, Observe
+
+Whenever `direction` is `-1`, speed will be negative and the box will move to the left.
 
 At this point your `update` function should look like this:
 
     function update() {
-        speed *= direction;
-        position += speed;    // increment position by speed on every update
+        position += speed * direction;    // increment position by speed on every update
         console.log("new position: " + position);
         
         if(position > boardWidth) {
@@ -311,9 +322,9 @@ At this point your `update` function should look like this:
     
 Now  you'll need to make it bounce off the left wall. 
 
-- At what value of `position` do you want the box to "bounce" off the left wall?
+- What should the value of `direction` be to make the box move right?
+- At what value of `position` do you want to make this change?
 - What comparison operator will you use? Does `>` make sense to use here?
-- What should you do to make the box move right after hitting the left wall?
 
 ## Good Job
 
