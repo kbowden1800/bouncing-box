@@ -336,16 +336,16 @@ You've written your first game! Here are some ways you can try and make your gam
 Hints: 
 1) Completing this challenge will require us to create new variables to track the *vertical* `position` and `direction` of the box. Create these new variables:
 
-    var positionY;
-    var directionY;
+        var positionY;
+        var directionY;
     
 2) We will need to dynamically change the vertical position of the box. To do so we can modify the `top` CSS property of the box and set it to the value of `positionY`:
 
-    box.css('top', positionY);
+        box.css('top', positionY);
     
 2) To know when the box hits the bottom of the screen we will need a variable to calculate the height of the window, at the top where you declare your variables add:
 
-    var boardHeight = jQuery(window).height(); 
+        var boardHeight = jQuery(window).height(); 
     
 ### Challenge 3) Can you make the box start at a random location on every click?
 
