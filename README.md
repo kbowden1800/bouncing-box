@@ -353,7 +353,9 @@ To create a random numerical value you can use the method `Math.random()` which 
 
     var randNum = Math.random() * 100;
     
-Once you generate this random number, where would you use it?
+If the boundaries of our game along the x axis are at `0` and `boardWidth`, how can you use this pattern to only generate a random position between those two numbers? 
+
+Once you generate this random number, where would you use it so that after a box click the position is set to that random value?
 
 ### Challenge 3) Can you make the box change color with each click? How about every 3 clicks?
 
