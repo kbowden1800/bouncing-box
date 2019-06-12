@@ -333,12 +333,20 @@ You've written your first game! Here are some ways you can try and make your gam
 ### Challenge 1) Use the [background-image](http://www.w3schools.com/cssref/pr_background-image.asp) CSS property to change your box or the background
 
 ### Challenge 2) Can you move the box up and down?
-Hint: To calculate the height of the window, simply add:
+Hints: 
+1) Completing this challenge will require us to create new variables to track the *vertical* `position` and `direction` of the box. Create these new variables:
+
+    var positionY;
+    var directionY;
+    
+2) We will need to dynamically change the vertical position of the box. To do so we can modify the `top` CSS property of the box and set it to the value of `positionY`:
+
+    box.css('top', positionY);
+    
+2) To know when the box hits the bottom of the screen we will need a variable to calculate the height of the window, at the top where you declare your variables add:
 
     var boardHeight = jQuery(window).height(); 
     
-You will also likely need to make some new variables to track the vertical position, speed, and direction of the box.
-
 ### Challenge 3) Can you make the box start at a random location on every click?
 
 To create a random numerical value you can use the method `Math.random()` which returns a random digit between 0 and 0.99999. To get a random number between 0 and 100 we can write:
