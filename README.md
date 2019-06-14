@@ -370,3 +370,21 @@ Lastly, you'll notice that `rgb(red, green, blue)` looks like a method call, and
 ### Challenge 5) Can you make the amount that the box speeds up with each click increase with every 3 clicks?
 
 ### Challenge 6) Can you make the game end if you mis-click 10 times?
+
+To end the game we need to turn off the interval timer that is constantly calling our `update` function. At the bottom of your project find this line:
+
+    setInterval(update, 50);
+    
+And modify it so that you now have this:
+
+    var interval = setInterval(update, 50);
+    
+The next step is to create a function that we can call to end the game. Add this function to your project:
+
+    function endGame() {
+        clearInterval(interval);
+    }
+
+Now that we have this function set up, we need to figure out *when* to call it. 
+- If we want to end the game after 10 misclicks, how can we track how many times we've misclicked? Will we need a new variable for this? If so, what should it's initial value be when the game starts?
+- How can we register that a misclick has occured? If we don't click on the box, what are we clicking on? Is there a way for us to use the code that handles the box click and modify it so that it handles clicking on the board?
