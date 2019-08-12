@@ -361,11 +361,24 @@ Once you generate this random number, where would you use it so that after a box
 
 The color of the box can be changed using the method `box.css()` like so:
 
-    box.css('background-color', "rgb(<red>, <green>, <blue>");
-    
-RGB colors are a combination of 3 numbers, one representing the amount of red in the color, one for green, and one for blue. These numbers range from 0 - 255. Try generating 3 random numbers using the `Math.random()` function (see above).
+```js
+var colorStr = "rgb(50, 25, 250)";
+box.css('background-color', colorStr);
+```
 
-Lastly, you'll notice that `rgb(red, green, blue)` looks like a method call, and it is but we need to put it in quotes and treat it like a String.
+RGB colors are a combination of 3 numbers that each range from 0 to 255. The first value represents the amount of red in the color, the second represents green, and the third represents blue. The combination above is very high in blue and low in red and green. 
+
+Create a Function called `getRandomColor()` that generates a random `colorStr` and returns it. You'll need to use String concatenation to combine the random values you generate into the proper format.
+
+To generate a random number between 0 and 10, you can use the `Math.random()` Function like so:
+
+```js
+var randomNumberBetween0and10 = Math.random() * 10;
+```
+
+How would you modify this so that you generate a random number between 0 and 255?
+
+Once you have your Function working, call it and pass the `colorStr` that is returned to `box.css` to change the `background-color` property each time the box is clicked. 
 
 ### Challenge 5) Can you make the amount that the box speeds up with each click increase with every 3 clicks?
 
