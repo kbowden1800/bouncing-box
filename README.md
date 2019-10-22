@@ -41,7 +41,7 @@ Throughout this README you will find **QUESTIONs** asking you to think criticall
     - [TODO 3: Update the position of the box](#todo-3-update-the-position-of-the-box)
     - [TODO 4: Handling events](#todo-4-handling-events)
     - [TODO 5: Speeding Up](#todo-5-speeding-up)
-    - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6-hey-box,-come-back!-checking-for-boundaries)
+    - [TODO 6: Hey box, come back! Checking for boundaries](#todo-6-hey-box-come-back-checking-for-boundaries)
     - [TODO 7: Make it Bounce](#todo-7-make-it-bounce)
 
 ## Installation
