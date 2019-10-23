@@ -72,6 +72,10 @@ You can recognize jQuery by its use of a very curious function `jQuery()` Here i
 
 ### TODO 1: Learn how to move the box
 
+Open the `index.html` file and follow the instructions below to run your program:
+- If you are using **Cloud9**, at the top of your window, click the **Preview** button. Then, in the top right corner of the preview window, click **Pop Out Into New Window**
+- If you are using **Codenvy**, right click on the `index.html` file in your file system and click **Preview**
+
 Within the `index.html` file, find the HTML for our box which has already been created for us:
 
     <body class="board">
