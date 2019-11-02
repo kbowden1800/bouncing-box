@@ -124,8 +124,8 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
 
 ```javascript
 function update() {
-    // TODO 1 / 2 / 3 / 6 / 7 / 8
     moveBoxTo(100);
+    
 };
 ```
 
@@ -164,6 +164,7 @@ Now that we have a Variable that can change over time, we can replace the hard-c
 ```javascript
 function update() {
     moveBoxTo(positionX);
+    
 };
 ```
 
@@ -189,6 +190,7 @@ Because `positionX` is not changing, the box is being re-drawn in the same posit
 function update() {
     positionX = positionX + 10;
     moveBoxTo(positionX);
+    
 };
 ```
 
@@ -231,6 +233,7 @@ According to our objectives, the box should return back to the starting position
 ```javascript
 function handleBoxClick() {
     positionX = 0;
+    
 }
 ```
 
@@ -282,6 +285,7 @@ To change the text displayed on the box, you can use the `changeBoxText()` Funct
 function handleBoxClick() {
     positionX = 0;
     changeBoxText(1);
+    
 }
 ```
 
@@ -312,6 +316,7 @@ var positionX = 10;
 function handleBoxClick() {
     positionX = 0;
     changeBoxText(1);
+    
 }
 ```
 
