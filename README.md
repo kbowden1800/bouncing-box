@@ -364,7 +364,7 @@ So far, we've introduced 2 Variables to our program: `positionX` and `points`. E
 
 ## Step 2: Replace the hard-coded value
 
-**FIND:** The `update` Function. It should look like this:
+**FIND:** The `update` Function.
 
 **CODE** Modify this code so that it uses your new `speed` Variable to change `positionX` instead of the hard-coded value `10`.
 
