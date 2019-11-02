@@ -144,9 +144,11 @@ This TODO has 3 steps. Make sure to complete all steps before moving on.
 
 ## Step 1: Declare your Variable
 
-We want to avoid hard-coding in our programs as much as possible. In this case, we won't be able animate the box unless we use **Variables**.
+We want to avoid hard-coding in our programs as much as possible. 
 
-A Variable allows us to call Functions without hard-coding the Arguments. In this case, we are hard-coding the new location that we want to move our box to. Let's create a varialbe for this new location.
+`moveBoxTo(100)` is hard-coded because it can only ever move the box to position `100`
+
+A Variable would allow us to call Functions without hard-coding the Arguments. For example, if we had a Variable called `positionX` we could call the Function like this: `moveBoxTo(positionX)`.
 
 **CODE:** Below `TODO 2`, declare a new Variable called `positionX` and assign it to the value `0`. Your code should look like this:
 
