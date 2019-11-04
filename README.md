@@ -127,9 +127,7 @@ function moveBoxTo(newPositionX) {
 }
 ```
 
-This Function uses `jQuery` and the `box.css()` Function to change the `left` CSS property of the box. 
-
-When you call the Function, simply provide a value for `newPositionX`.
+This Function uses `jQuery` and the `box.css()` Function to change the `left` CSS property of the box. When you call the Function, simply provide a value for `newPositionX`.
 
 **CODE:** In the `update` Function call the `moveBoxTo()` Function with an Argument of `100`. Your code should look like this:
 
@@ -139,6 +137,8 @@ function update() {
     
 };
 ```
+
+**HINT:** To call a Function, use the following syntax: `nameOfFunction(arguments)`
 
 **CODE:** Now, call the Function will larger and larger values. At what value does the box go off the right edge of the screen? 
 
