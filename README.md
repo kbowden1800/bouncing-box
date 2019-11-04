@@ -270,10 +270,10 @@ Each time the box is clicked, we also want to keep score and display that score 
 
 To change the text displayed on the box, you can use the `changeBoxText()` Function, which has been created for you. It uses the `jQuery` Function `box.text()` to modify the text displayed on the box.
 
-In order for the box to show a value that changes over time, we'll need to:
-- Create a Variable
+In order for the box to show the correct number of points, we'll need to:
+- Create a Variable to remember how many times the box has been clicked. 
 - Call the Function using the Variable
-- Increase the value each time the box is clicked.
+- Increase the value of the Variable each time the box is clicked.
 
 ## Step 1: Call the `changeBoxText()` Function
 
@@ -348,9 +348,19 @@ This TODO has 3 steps that you will need to complete on your own.
 
 Now that we can keep track of how many times we've clicked on the box, we also want to make the game harder after each click! 
 
+**FIND:** The `update` Function. It should look like this:
+
+```javascript
+function update() {
+    positionX = positionX + 10;
+    moveBoxTo(positionX);
+    
+};
+```
+
 Currently, our program is hard-coded to increase `positionX` by `10` on every Frame. This means that the *speed* of our box is fixed to `10` pixels/frame. 
 
-According to our objectives, we want the box to speed up every time the box is clicked. In order to allow this speed to change over the course of our program, we can use another **Variable**.
+In order to allow this speed to change over the course of our program, we will need to remember how fast our box is moving. This means we'll create a new **Variable**.
 
 So far, we've introduced 2 Variables to our program: `positionX` and `points`. Each variable changes over time and/or when the box is clicked. Use your knowledge of Variables to introduce a new Variable `speed` into the program!
 
