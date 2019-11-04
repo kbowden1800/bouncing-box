@@ -331,14 +331,9 @@ Again, however, this value is hard-coded. No matter how many times we click on t
 
 ## Step 2: Create a Variable
 
-**FIND**: Your first Variable declaration below `// TODO 2`. 
+**FIND**: Your the Variable declaration for `positionX` below `// TODO 2`. 
 
-**CODE:** Declare a new Variable called `points` and assign it to the value `0`. Your code should look like this:
-
-```javascript
-var positionX = 10;
-/* Your code for declaring the points variable HERE */
-```
+**CODE:** Declare a new Variable called `points` and assign it to the value `0`. 
 
 ## Step 3: Replace the hard-coded value
 
