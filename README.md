@@ -429,7 +429,7 @@ Your program should satisfy the following requirements:
 
 # TODO 6: Make the Box Bounce
 
-This TODO has 3 steps. Make sure to complete all steps before moving on.
+This TODO has 2 steps. Make sure to complete all steps before moving on.
 
 Detecting when one Object collides with another is one of the most common problems to solve when writing a video game. It is often more difficult than deciding what to do once that collision has been detected.
 
@@ -460,11 +460,9 @@ if (conditionIsTrue) {
 }
 ```
 
-If you are having trouble figuring out how to change direction of the box, move on to Step 2.
+If you are having trouble figuring out how to change direction of the box, See the Hint below:
 
-## Step 2: Changing Direction
-
-If you were able to get the box to change direction, move on to Step 3. 
+## HINT: Changing Direction
 
 If you need help understanding how we can change the direction of the box, take a look at the illustration below:
 
@@ -482,14 +480,14 @@ In Frame 4, 5, and 6 we can see the box moving to the _left_ with this new negat
 - `speed = speed * -1;`
 
 
-## Step 3: Bounce the box off the left wall.
+## Step 2: Bounce the box off the left wall.
 
 Now, using what you've learned about how to bounce the box off the right wall, it's time to bounce the box off the left wall.
 
 **CODE:** Below the `if` statement you just wrote, add another that translates to:
 
     IF positionX is less than the MINIMUM X-Coordinate of the screen:
-        change Direction to be positive
+        change speed to be positive
 
 **HINT:** `0` is the **MINIMUM** x-coordinate of the screen. Anything less than `0` will be off the screen to the left.
  
