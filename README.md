@@ -9,11 +9,10 @@
 - [Lesson Steps](#lesson-steps)
     - [TODO 1: Learn how to move the box](#todo-1-learn-how-to-move-the-box)
     - [TODO 2: Create Variables to Avoid Hard-Coding](#todo-2-create-Variables-to-avoid-hard-coding)
-    - [TODO 3: Move the Box](#todo-3-move-the-box)
-    - [TODO 4: Respond to Click Events](#todo-4-respond-to-click-events)
-    - [TODO 5: Keeping Score](#todo-5-keeping-score)
-    - [TODO 6: Speeding Up](#todo-6-speeding-up)
-    - [TODO 7: Make the Box Bounce](#todo-7-make-the-box-bounce)
+    - [TODO 3: Respond to Click Events](#todo-3-respond-to-click-events)
+    - [TODO 4: Keeping Score](#todo-4-keeping-score)
+    - [TODO 5: Speeding Up](#todo-5-speeding-up)
+    - [TODO 6: Make the Box Bounce](#todo-6-make-the-box-bounce)
 
 
 # Overview
@@ -138,17 +137,17 @@ function update() {
 
 Right now we are still hard-coding this position. We want this value to change over time so that the box moves on its own.
 
-# TODO 2: Create Variables to Avoid Hard-Coding
+# TODO 2: Use Variables to remember where we've been
 
-This TODO has 2 steps. Make sure to complete all steps before moving on.
+This TODO has 3 steps. Make sure to complete all steps before moving on.
 
-We want to avoid hard-coding in our programs as much as possible. 
+Animation requires us to re-draw the box in a new location on every Frame. However, in order to draw the box on Frame 2, we need to remember where it was on Frame 1. 
 
-`moveBoxTo(100)` is hard-coded because it can only ever move the box to position `100`
+While we can manually move the box by calling the Function `moveBoxTo(100)` and then `moveBoxTo(200)` and so on, the programmer has to do the work of remembering where the box was.
 
-A Variable would allow us to call Functions without hard-coding the Arguments. For example, if we had a Variable called `positionX` we could call the Function like this: `moveBoxTo(positionX)`.
+Variables allow the computer to remember pieces of information as our program runs. If we create a variable called `positionX`, we can change that value on each Frame and then call the Function `moveBoxTo(positionX)`.
 
-Since the `update` Function is called 20 times/second, we can use it to draw 20 changing Frames/second. 
+The `update` Function is called 20 times/second and we can use it to draw 20 changing Frames/second. 
 
 ## Step 1: Declare your Variable
 
@@ -174,9 +173,7 @@ function update() {
 
 Notice that your box has moved back to the left side of the screen. This is because it is being moved to the `positionX` which you assigned the value `0`. So, aren't we still hard-coding the position?
 
-Yes: in the next TODO we'll change this and get our box moving.
-
-# TODO 3: Move the Box
+## Step 3: Increase `positionX` on each Frame
 
 The `update` Function is being called 20 times/second. Each time it is called, `moveBoxTo(positionX)` is being called.
 
@@ -218,7 +215,7 @@ moveBoxTo(positionX);
 // so on...
 ```
 
-# TODO 4: Respond to Click Events
+# TODO 3: Respond to Click Events
 
 Eventually, the box will drift off the screen. We can save the box by clicking on it and returning it to the starting position.
 
@@ -265,7 +262,7 @@ moveBoxTo(positionX);
 // so on...
 ```
 
-# TODO 5: Keeping Score
+# TODO 4: Keeping Score
 
 This TODO has 4 steps. Make sure to complete all steps before moving on.
 
@@ -345,7 +342,7 @@ function handleBoxClick() {
 
 **Hint #1**: To increase `positionX` by `10` we wrote: `positionX = positionX + 10;`. How can you increase `points` by 1?
 
-# TODO 6: Speeding Up
+# TODO 5: Speeding Up
 
 This TODO has 3 steps that you will need to complete on your own. 
 
@@ -388,7 +385,7 @@ Your program should satisfy the following requirements:
 - The box should display the correct number of times that you have clicked on it
 - The box should speed up when it is clicked
 
-# TODO 7: Make the Box Bounce
+# TODO 6: Make the Box Bounce
 
 This TODO has 3 steps. Make sure to complete all steps before moving on.
 
