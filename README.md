@@ -98,16 +98,6 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
 
 In this first step, we'll see how can manually move the box using CSS.
 
-**FIND:** Within the `index.html` file, find the HTML for our box which has already been created for us:
-
-```html
-<body class="board">
-    <!-- HTML for our box -->
-    <div class="box">?</div>
-
-</body>
-```
-
 **FIND:** Now open the `index.css` file. Here, the CSS that styles the box is defined. 
 
 **CODE:** Change the `left` CSS property to the following values:
