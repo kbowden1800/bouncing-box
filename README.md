@@ -94,7 +94,11 @@ Open the `index.html` file and follow the instructions below to run your program
 
 This TODO has 2 steps. Make sure to complete all steps before moving on!
 
-## Step 1: Move the box with HTML and CSS
+Moving the box requires us to change the CSS of the box. However, CSS can only be hardcoded - once it is set, it won't change unless the programmer changes it.
+
+Using `jQuery` we can instead change the CSS with JavaScript code. This will open the door to animation.
+
+## Step 1: Move the `box` with CSS
 
 In this first step, we'll see how can manually move the box using CSS.
 
@@ -106,11 +110,14 @@ In this first step, we'll see how can manually move the box using CSS.
 - `400px`
 - `0px`
 
-The left property determines how far from the _left_ side of the screen the box is. As the value increases, the box moves to the right. As the value decreases, the box moves to the left. `0px` sets the box to the left side of the screen.
+The `left` property determines how far from the _left_ side of the screen the box is. 
+- As the value increases, the box moves to the right. 
+- As the value decreases, the box moves to the left. 
+- `0px` sets the box to the left side of the screen.
 
-## Step 2: Move the Box with JavaScript
+## Step 2: Move the `box` with JavaScript
 
-We can move the box using CSS but in order to program the box to move on its own we'll need to use JavaScript.
+CSS allows us to hard code a starting position for the box. If we want the position of the box to change continuously, we'll need to use JavaScript.
 
 **FIND:** Open the `index.js` file. Then, find the `moveBoxTo` Function (around **line 20**). It looks like this:
 
@@ -122,16 +129,18 @@ function moveBoxTo(newPositionX) {
 
 This Function uses `jQuery` and the `box.css()` Function to change the `left` CSS property of the box. 
 
+When you call the Function, simply provide a value for `newPositionX`.
+
 **CODE:** In the `update` Function call the `moveBoxTo()` Function with an Argument of `100`. Your code should look like this:
 
 ```javascript
 function update() {
-    moveBoxTo(100);
+    /* Your Function Call Here */
     
 };
 ```
 
-**CODE:** Now, change the value inside the parentheses to a larger value. At what value does the box go off the right edge of the screen? 
+**CODE:** Now, call the Function will larger and larger values. At what value does the box go off the right edge of the screen? 
 
 **CODE:** Try `moveBoxTo(boardWidth);`
 
@@ -141,37 +150,52 @@ Right now we are still hard-coding this position. We want this value to change o
 
 This TODO has 3 steps. Make sure to complete all steps before moving on.
 
-Animation requires us to re-draw the box in a new location on every Frame. However, in order to draw the box on Frame 2, we need to remember where it was on Frame 1. 
+We can manually move the box by calling the Function `moveBoxTo(10)` and then `moveBoxTo(20)` and then `moveBoxTo(30)` and so on but this is not animation.
 
-While we can manually move the box by calling the Function `moveBoxTo(100)` and then `moveBoxTo(200)` and so on, the programmer has to do the work of remembering where the box was.
+**Animation** requires us to re-draw the box in a new location on every Frame. If we want the box to move `10` pixels on each Frame:
+- On **Frame 1** the box should be at position `0`
+- On **Frame 2** the box should be at position `10`
+- On **Frame 3** the box should be at position `20`
+- So on...
 
-Variables allow the computer to remember pieces of information as our program runs. If we create a variable called `positionX`, we can change that value on each Frame and then call the Function `moveBoxTo(positionX)`.
+The `update` Function is called 20 times/second and we can use it to draw a new Frame each time it is called. This gives us 20 Frames/second!
 
-The `update` Function is called 20 times/second and we can use it to draw 20 changing Frames/second. 
+We need to program the `update` Function to `moveBoxTo()` a new _different_ and _changing_ location on each Frame. **This means that the computer will need to remember where the box was on Frame 1 in order to re-draw the box on Frame 2.**
+
+Variables allow the computer to remember pieces of information as our program runs. If we create a variable called `positionX`, on each Frame we can:
+- increment the value on each Frame: `positionX = positionX + 10`
+- and then call the Function `moveBoxTo(positionX)`.
 
 ## Step 1: Declare your Variable
 
-**CODE:** Below `TODO 2`, declare a new Variable called `positionX` and assign it to the value `0`. Your code should look like this:
+**FIND:** `// TODO 2 - Variable Declarations`
+
+**CODE:** Declare a new Variable called `positionX` and assign it to the value `0`.
 
 ```javascript
 // TODO 2 - Variable declarations 
-var positionX = 0;       // reference for the x-coordinate of our box
+
+/* Your Variable Declaration HERE */
+```
+
+**HINT:** To declare a Variable, use this syntax:
+
+```js
+var myVariable = someValue;
 ```
 
 ## Step 2: Replace the hard-coded value
 
-Now that we have a Variable that can change over time, we can replace the hard-coded value that we pass to the `moveBoxTo` Function.
+**FIND:** The `update()` Function
 
-**CODE:** In the `update` Function, modify your Function Call so that it uses your new Variable. Your code should look like this:
+**CODE:** Replace the hard-coded value in `moveBoxTo()` with your new Variable. Your code should look like this:
 
 ```javascript
 function update() {
     moveBoxTo(positionX);
-    
+
 };
 ```
-
-Notice that your box has moved back to the left side of the screen. This is because it is being moved to the `positionX` which you assigned the value `0`. So, aren't we still hard-coding the position?
 
 ## Step 3: Increase `positionX` on each Frame
 
@@ -179,21 +203,28 @@ The `update` Function is being called 20 times/second. Each time it is called, `
 
 Because `positionX` is not changing, the box is being re-drawn in the same position. To get the box to move, we need to change the value of `positionX` on each "Frame". 
 
-**CODE:** In the `update` Function, modify your Function Call so that it looks like this:
+**CODE:** In the `update` Function, increase the value of `positionX` by `10` on each Frame:
 
 ```javascript
 function update() {
-    positionX = positionX + 10;
+    /* Your Code to Increase positionX by 10 HERE*/
     moveBoxTo(positionX);
     
 };
 ```
 
+**HINT:** To increase a Variable by `10` we can write:
+
+```javascript
+myVariable = myVariable + 10;
+```
+
+## Save and Observe
 Let's take a second to understand how this will work. Each time the `update` Function is called a new "Frame" is drawn. So, over time, our code will look like this:
 
 ```javascript
 // When you first create the Variable...
-positionX = 0;
+var positionX = 0;
 
 // during update... 
 // Frame 1
@@ -215,15 +246,15 @@ moveBoxTo(positionX);
 // so on...
 ```
 
-# TODO 3: Respond to Click Events
-
-Eventually, the box will drift off the screen. We can save the box by clicking on it and returning it to the starting position.
+# TODO 3: Respond to Click Events 
 
 **FIND:** The `handleBoxClick` Function.
 
-While the `update` Function is called non-stop 20 times/second, the `handleBoxClick` Function is programmed to be called each time the box is clicked. Here, we can program the Function to reset the box to the starting position.
+While the `update` Function is called non-stop 20 times/second, the `handleBoxClick` Function is programmed to be called each time the box is clicked. 
 
-**Code:** Modify the `handleBoxClick` Function to reset the value of `positionX` each time the box is clicked. Your Function should look like this:
+One of our goals is to reset the box to the starting position when the box is clicked. 
+
+**Code:** Modify the `handleBoxClick` Function to re-assign the value of `positionX` to `0`. Your Function should look like this:
 
 ```javascript
 function handleBoxClick() {
@@ -240,7 +271,7 @@ Below, we can see what will happen if the box is clicked between Frames 2 and 3.
 
 ```javascript
 // When you first create the Variable...
-positionX = 0;
+var positionX = 0;
 
 // during update... 
 // Frame 1
@@ -259,6 +290,10 @@ positionX = 0;              // positionX = 0
 positionX = 0 + 10;         // positionX = 10
 moveBoxTo(positionX);
 
+// Frame 4
+positionX = 10 + 10;         // positionX = 20
+moveBoxTo(positionX);
+
 // so on...
 ```
 
@@ -271,6 +306,7 @@ Each time the box is clicked, we also want to keep score and display that score 
 To change the text displayed on the box, you can use the `changeBoxText()` Function, which has been created for you. It uses the `jQuery` Function `box.text()` to modify the text displayed on the box.
 
 In order for the box to show the correct number of points, we'll need to:
+- Use the `changeBoxText()` Function.
 - Create a Variable to remember how many times the box has been clicked. 
 - Call the Function using the Variable
 - Increase the value of the Variable each time the box is clicked.
@@ -297,15 +333,11 @@ Again, however, this value is hard-coded. No matter how many times we click on t
 
 **FIND**: Your first Variable declaration below `// TODO 2`. 
 
-**CODE:** Declare a new Variable called `points` and assign it to the value `0`. You should be able to do this on your own now!
-
-Your code should look like this:
+**CODE:** Declare a new Variable called `points` and assign it to the value `0`. Your code should look like this:
 
 ```javascript
-// TODO 2 - Variable declarations
 var positionX = 10;
-
-// Your code for declaring the points variable here
+/* Your code for declaring the points variable HERE */
 ```
 
 ## Step 3: Replace the hard-coded value
