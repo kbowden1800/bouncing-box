@@ -112,15 +112,27 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
 </body>
 ```
 
-**CODE:** Now find the CSS that styles the box and change the following properties:
-- `left` - how far from the "left" the box is
-- `top` - how far from the "top" the box is
-
-**Save, Refresh, Observe**
+**CODE:** Now find the CSS that styles the box and change the `left` property to the following values:
+- `200px`
+- `300px`
+- `400px`
+- `0px`
 
 ## Step 2: Move the Box with JavaScript
 
-**CODE:** Find the `update` Function. Add the following Function Call inside the curly braces so that the Function looks like this:
+We can move the box using CSS but in order to program the box to move on its own we'll need to use JavaScript.
+
+**FIND:** The `moveBoxTo` Function. It looks like this:
+
+```js
+function moveBoxTo(newPositionX) {
+    box.css("left", newPositionX);
+}
+```
+
+This Function uses `jQuery` and the `box.css()` Function to change the `left` CSS property of the box. 
+
+**CODE:** In the `update` Function call the `moveBoxTo()` Function with an Argument of `100`. Your code should look like this:
 
 ```javascript
 function update() {
@@ -129,14 +141,9 @@ function update() {
 };
 ```
 
-The `moveBoxTo` Function has been created for you to help you move the Box to a new location. Each time you call the Function, provide an X-Coordinate for the box to move to.
+**CODE:** Now, change the value inside the parentheses to a larger value. At what value does the box go off the right edge of the screen?
 
-**CODE:** Change the value inside the parentheses to a larger value. Try `200`.
-
-**FIND:** If you look at the definition of the `moveBoxTo` Function, you'll see that it modifies the `left` CSS property of the box. The larger this value gets, the more to the right the box moves.
-
-However, right now we are hard-coding this position. We want this value to change over time so that the box moves on its own.
-
+Right now we are hard-coding this position. We want this value to change over time so that the box moves on its own.
 
 # TODO 2: Create Variables to Avoid Hard-Coding
 
