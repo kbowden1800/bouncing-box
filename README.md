@@ -2,13 +2,28 @@
 
 # Bouncing Box
 
+**Table of Contents**
+- [Overview](#overview) 
+- [Installation](#installation)
+- [jQuery](#a-note-about-jQuery)
+- [Lesson Steps](#lesson-steps)
+    - [TODO 1: Learn how to move the box](#todo-1-learn-how-to-move-the-box)
+    - [TODO 2: Create Variables to Avoid Hard-Coding](#todo-2-create-Variables-to-avoid-hard-coding)
+    - [TODO 3: Move the Box](#todo-3-move-the-box)
+    - [TODO 4: Keeping Score](#todo-4-keeping-score)
+    - [TODO 5: Speeding Up](#todo-5-speeding-up)
+    - [TODO 6: Make the Box Bounce](#todo-6-make-the-box-bounce)
+
+
+# Overview
+
 We're going to create a simple game where a box moves across the screen at an increased speed after each click.
 
 <a href="https://output.jsbin.com/rupejif" target="_blank"> When you are done it should look like this (Right Click --> Open in new tab) </a>
 
 Our goal for this game is to learn how to bring together HTML, CSS, and JavaScript. We use HTML to define our structure, CSS to define the style of that structure, and JavaScript in order to implement behavior. One of the primary ways we can implement behavior in JavaScript is by making modifications to the HTML and CSS in response to **events** which we will demonstrate by making this simple game. 
 
-### Take Away
+### Take Aways
 
 * Introduction to principals of animation
 * Introduction to cartesian coordinates
@@ -21,29 +36,12 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 
 For this program you will be given _**stencil code**_ found in the `index.html` file. This stencil will set up the program for you so that you can focus on the take aways of this project.
 
-#### TODOs
+### TODOs
 To complete the assignment, below you'll find numbered **TODO** lesson steps.  While reading this lesson, whenever you come across a **TODO** step, you are expected to do this step, which may require you to create a file, or insert some HTML, CSS or JavaScript in the appropriate place.
 
 Please follow the instructions closely. Sometimes, however, we may be showing you code examples to make a point, so you only need to add code if we're explicitly telling you to do a lesson step, so please be aware of the actual lesson steps.
 
-#### Questions
-Throughout this README you will find **QUESTIONs** asking you to think critically about the code that you are writing. Whenever you encounter a **QUESTION** add a comment starting with `//` answering the question like so:
-
-    // QUESTION 1: After 50 milliseconds the position of the box will be 10
- 
- **Table of Contents**
- 
-- [Installation](#installation)
-- [jQuery](#a-note-about-jQuery)
-- [Lesson Steps](#lesson-steps)
-    - [TODO 1: Learn how to move the box](#todo-1-learn-how-to-move-the-box)
-    - [TODO 2: Create Variables to Avoid Hard-Coding](#todo-2-create-Variables-to-avoid-hard-coding)
-    - [TODO 3: Move the Box](#todo-3-move-the-box)
-    - [TODO 4: Keeping Score](#todo-4-keeping-score)
-    - [TODO 5: Speeding Up](#todo-5-speeding-up)
-    - [TODO 6: Make the Box Bounce](#todo-6-make-the-box-bounce)
-
-## Installation
+# Installation
 * Make sure your github and cloud9 accounts are linked to Greenlight
 * Open your first website workspace
 * go to your bash terminal (located at the bottom of the cloud9 workspace) and type in the command **os install**. Hit enter.
@@ -54,7 +52,7 @@ Throughout this README you will find **QUESTIONs** asking you to think criticall
 
 NOTE: If you receive an error that says, `os install command not found` the opspark CLI is not installed. To install it, enter the command `npm intall -g opspark` in your bash terminal. 
 
-## A note about jQuery
+# A note about jQuery
 
 We are going to be using [jQuery](https://jquery.com) for this exercise. You can see that we've included it in our web page with the following HTML 
 
@@ -98,6 +96,8 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
 
 ## Step 1: Move the box with HTML and CSS
 
+In this first step, we'll see how can manually move the box using CSS.
+
 **FIND:** Within the `index.html` file, find the HTML for our box which has already been created for us:
 
 ```html
@@ -105,24 +105,24 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
     <!-- HTML for our box -->
     <div class="box">?</div>
 
-    <script>
-        //...javascript codee
-
-    </script>
 </body>
 ```
 
-**CODE:** Now find the CSS that styles the box and change the `left` property to the following values:
+**FIND:** Now open the `index.css` file. Here, the CSS that styles the box is defined. 
+
+**CODE:** Change the `left` CSS property to the following values:
 - `200px`
 - `300px`
 - `400px`
 - `0px`
 
+The left property determines how far from the _left_ side of the screen the box is. As the value increases, the box moves to the right. As the value decreases, the box moves to the left. `0px` sets the box to the left side of the screen.
+
 ## Step 2: Move the Box with JavaScript
 
 We can move the box using CSS but in order to program the box to move on its own we'll need to use JavaScript.
 
-**FIND:** The `moveBoxTo` Function. It looks like this:
+**FIND:** Open the `index.js` file. Then, find the `moveBoxTo` Function (around **line 20**). It looks like this:
 
 ```js
 function moveBoxTo(newPositionX) {
@@ -141,9 +141,11 @@ function update() {
 };
 ```
 
-**CODE:** Now, change the value inside the parentheses to a larger value. At what value does the box go off the right edge of the screen?
+**CODE:** Now, change the value inside the parentheses to a larger value. At what value does the box go off the right edge of the screen? 
 
-Right now we are hard-coding this position. We want this value to change over time so that the box moves on its own.
+**CODE:** Try `moveBoxTo(boardWidth);`
+
+Right now we are still hard-coding this position. We want this value to change over time so that the box moves on its own.
 
 # TODO 2: Create Variables to Avoid Hard-Coding
 
