@@ -160,9 +160,7 @@ We can manually move the box by calling the Function `moveBoxTo(10)` and then `m
 - On **Frame 3** the box should be at position `20`
 - So on...
 
-The `update` Function is called 20 times/second and we can use it to draw a new Frame each time it is called. This gives us 20 Frames/second!
-
-We need to program the `update` Function to `moveBoxTo()` a new _different_ and _changing_ location on each Frame. **This means that the computer will need to remember where the box was on Frame 1 in order to re-draw the box on Frame 2.**
+The `update` Function is called 20 times/second so we can use it to draw a new Frame each time it is called. This gives us 20 Frames/second! On each frame, we need the `update` Function to `moveBoxTo()` a _different_ and _changing_ location on each Frame. **This means that the computer will need to remember where the box was on Frame 1 in order to re-draw the box on Frame 2.**
 
 Variables allow the computer to remember pieces of information as our program runs. If we create a variable called `positionX`, on each Frame we can:
 - increment the value on each Frame: `positionX = positionX + 10`
