@@ -37,9 +37,9 @@ Our goal for this game is to learn how to bring together HTML, CSS, and JavaScri
 For this program you will be given _**stencil code**_ found in the `index.html` file. This stencil will set up the program for you so that you can focus on the take aways of this project.
 
 ### TODOs
-To complete the assignment, below you'll find numbered **TODO** lesson steps.  While reading this lesson, whenever you come across a **TODO** step, you are expected to do this step, which may require you to create a file, or insert some HTML, CSS or JavaScript in the appropriate place.
+To complete the assignment, below you'll find numbered **TODO** lesson steps.  Each TODO will take you one step closer to completing the project and often times you may be required to complete multiple TODOs to complete a feature of the program. 
 
-Please follow the instructions closely. Sometimes, however, we may be showing you code examples to make a point, so you only need to add code if we're explicitly telling you to do a lesson step, so please be aware of the actual lesson steps.
+Please follow the instructions closely. Sometimes we may only show you code examples to make a point, and there is no code required to be entered. These instructions will often be labeled with **FIND**. In the steps that do require inputing some code, you will be explicitly told to do so. These steps will be labeled with **CODE:**. When entering code make sure to read the instructions closely to see _where_ you are supposed to write your code. Occasionally you will receive hints for the coding steps. These hints will be labeled with **HINTS:**.
 
 # Installation
 * Make sure your github and cloud9 accounts are linked to Greenlight
@@ -104,7 +104,7 @@ In this first step, we'll see how can manually move the box using CSS.
 
 **FIND:** Now open the `index.css` file. Here, the CSS that styles the box is defined. 
 
-**CODE:** Change the `left` CSS property to the following values:
+**CODE:** Change the `left` CSS property to the following values one at a time. For each value, observe where the box ends up:
 - `200px`
 - `300px`
 - `400px`
@@ -114,6 +114,8 @@ The `left` property determines how far from the _left_ side of the screen the bo
 - As the value increases, the box moves to the right. 
 - As the value decreases, the box moves to the left. 
 - `0px` sets the box to the left side of the screen.
+
+**CODE** Using the `left` property, choose a starting position for the `box`.
 
 ## Step 2: Move the `box` with JavaScript
 
@@ -140,7 +142,7 @@ function update() {
 
 **HINT:** To call a Function, use the following syntax: `nameOfFunction(arguments)`
 
-**CODE:** Now, call the Function will larger and larger values. At what value does the box go off the right edge of the screen? 
+**CODE:** Now, call the Function with increasing larger values. At what value does the box go off the right edge of the screen? 
 
 **CODE:** Try `moveBoxTo(boardWidth);`
 
