@@ -8,7 +8,7 @@
 - [jQuery](#a-note-about-jQuery)
 - [Lesson Steps](#lesson-steps)
     - [TODO 1: Learn how to move the box](#todo-1-learn-how-to-move-the-box)
-    - [TODO 2: Create Variables to Avoid Hard-Coding](#todo-2-create-Variables-to-avoid-hard-coding)
+    - [TODO 2: Create Variables to Avoid Hard-Coding](#todo-2-create-variables-to-avoid-hard-coding)
     - [TODO 3: Respond to Click Events](#todo-3-respond-to-click-events)
     - [TODO 4: Keeping Score](#todo-4-keeping-score)
     - [TODO 5: Speeding Up](#todo-5-speeding-up)
