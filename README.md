@@ -331,7 +331,7 @@ Again, however, this value is hard-coded. No matter how many times we click on t
 
 ## Step 2: Create a Variable
 
-**FIND**: Your the Variable declaration for `positionX` below `// TODO 2`. 
+**FIND**: Your Variable declaration for `positionX` below `// TODO 2`. 
 
 **CODE:** Declare a new Variable called `points` and assign it to the value `0`. 
 
