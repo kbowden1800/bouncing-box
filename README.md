@@ -96,7 +96,7 @@ This TODO has 2 steps. Make sure to complete all steps before moving on!
 
 Moving the box requires us to change the CSS of the box. However, CSS can only be hardcoded - once it is set, it won't change unless the programmer changes it.
 
-Using `jQuery` we can instead change the CSS with JavaScript code. This will open the door to animation.
+Using the `jQuery()` Function we can instead change the CSS with JavaScript code. This will open the door to animation.
 
 ## Step 1: Move the `box` with CSS
 
