@@ -102,7 +102,7 @@ Using the `jQuery()` Function we can instead change the CSS with JavaScript code
 
 In this first step, we'll see how can manually move the box using CSS.
 
-**FIND:** Now open the `index.css` file. Here, the CSS that styles the box is defined. 
+**FIND:** Open the `index.css` file. Here, the CSS that styles the box is defined. 
 
 **CODE:** Change the `left` CSS property to the following values one at a time. For each value, observe where the box ends up:
 - `200px`
