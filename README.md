@@ -102,7 +102,7 @@ Using the `jQuery()` Function we can instead change the CSS with JavaScript code
 
 In this first step, we'll see how can manually move the box using CSS.
 
-**FIND:** Open the `index.css` file. Here, the CSS that styles the box is defined. 
+**FIND:** The `<style>` tag within the `index.html`file. Here, the CSS that styles the box is defined. 
 
 **CODE:** Change the `left` CSS property to the following values one at a time. For each value, observe where the box ends up:
 - `200px`
@@ -121,7 +121,7 @@ The `left` property determines how far from the _left_ side of the screen the bo
 
 CSS allows us to hard code a starting position for the box. If we want the position of the box to change continuously, we'll need to use JavaScript.
 
-**FIND:** Open the `index.js` file. Then, find the `moveBoxTo` Function (around **line 20**). It looks like this:
+**FIND:** The `<script>` tag within the `index.html` file. Then, find the `moveBoxTo` Function (around **line 47**). It looks like this:
 
 ```js
 function moveBoxTo(newPositionX) {
