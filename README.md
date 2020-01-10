@@ -19,7 +19,7 @@
 
 We're going to create a simple game where a box moves across the screen at an increased speed after each click.
 
-<a href="https://output.jsbin.com/qilimud/1" target="_blank"> When you are done it should look like this (Right Click --> Open in new tab) </a>
+<a href="https://output.jsbin.com/diyoxey" target="_blank"> When you are done it should look like this (Right Click --> Open in new tab) </a>
 
 Our goal for this game is to learn how to bring together HTML, CSS, and JavaScript. We use HTML to define our structure, CSS to define the style of that structure, and JavaScript in order to implement behavior. One of the primary ways we can implement behavior in JavaScript is by making modifications to the HTML and CSS in response to **events** which we will demonstrate by making this simple game. 
 
