@@ -488,7 +488,7 @@ Now, using what you've learned about how to bounce the box off the right wall, i
  
 # TODO 7: Fix a bug!
 
-Great work! It seems like our Bouncing Box game is complete. However, we've created a _bug_ in our program that we need to squash! Thankfully, this bug doesn't break out program completely, it just makes it behave in a way that we'd like to change. 
+Great work! It seems like our Bouncing Box game is complete. However, we've created a _bug_ in our program that we need to squash! Thankfully, this bug doesn't break the program completely, it just makes it behave in a way that we'd like to change. 
 
 Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speedX = 10` and, each time a new frame is drawn, we are running this code to change the position of our box over time:
 
