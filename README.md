@@ -347,7 +347,7 @@ function handleBoxClick() {
 }
 ```
 
-**CODE** Modify the `changeBoxText()` Function Call so that it uses your new `points` Variable instead of the hard-coded value `1`.
+**CODE** Modify the `changeBoxText()` Function Call so that it uses your new `points` Variable as an argument instead of the hard-coded value `1`.
 
 ## Step 4: Increase the value of `points` when the box is clicked
 
@@ -367,7 +367,7 @@ function handleBoxClick() {
 }
 ```
 
-**Hint #1**: To increase `positionX` by `10` we wrote: `positionX = positionX + 10;`. How can you increase `points` by 1?
+**Hint #1**: To increase `positionX` by `10` we wrote: `positionX = positionX + 10;`. How can you increase `points` by `1`?
 
 # TODO 5: Speeding Up
 
@@ -486,8 +486,6 @@ Now, using what you've learned about how to bounce the box off the right wall, i
 **HINT:** `0` is the **MINIMUM** x-coordinate of the screen. Anything less than `0` will be off the screen to the left.
  
 <hr>
-
-## Great Job!
 
 # Extra Challenges
 
