@@ -518,9 +518,9 @@ Instead we need to increase the _magnitude_ (how big the absolute value is) of t
 
 The pseudocode for solving this problem looks like this:
 ```
-IF speed is positive:
+IF speed is a positive number:
     add 3 to speedX
-ELSE IF speed is negative:
+ELSE IF speed is a negative number:
     subtract 3 from speedX
 ```
  
