@@ -13,6 +13,7 @@
     - [TODO 4: Keeping Score](#todo-4-keeping-score)
     - [TODO 5: Speeding Up](#todo-5-speeding-up)
     - [TODO 6: Make the Box Bounce](#todo-6-make-the-box-bounce)
+    - [TODO 7: Fix a bug!](#todo-7-fix-a-bug)
 
 
 # Overview
@@ -484,6 +485,44 @@ Now, using what you've learned about how to bounce the box off the right wall, i
         change speed to be positive
 
 **HINT:** `0` is the **MINIMUM** x-coordinate of the screen. Anything less than `0` will be off the screen to the left.
+ 
+# TODO 7: Fix a bug!
+
+Great work! It seems like our Bouncing Box game is complete. However, we've created a _bug_ in our program that we need to squash! Thankfully, this bug doesn't break the program completely, it just makes it behave in a way that we'd like to change. 
+
+Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speedX = 10` and, each time a new frame is drawn, we are running this code to change the position of our box over time:
+
+```js
+    positionX += speedX;
+```
+
+So, if `speedX` is equal to `10` then `positionX` will _increase_ by `10` on each frame, moving the box to the right. Great.
+
+Now, take a look at the `handleBoxClick` function. We've coded it to do the following when the user clicks on the box:
+
+```js
+speedX += 3;
+```
+
+If `speedX` is positive `10` and we click on the box, `3` will be added to `speedX` making it equal to `13` and making the box move faster on each frame. This is also great. 
+
+**The problem occurs when we click on the box when the box is moving LEFT**.
+
+When the box hits the right wall, we make `speedX` negative, changing it to `-13`. This makes the `positionX` _decrease_ by `13` on each frame, moving the box to the left at the same speed as before. 
+
+However, if we were to click on the box while it's moving to the left, we would add `3` to `speedX`: `-13 + 3 = -10`
+
+We've increased the _value_ of `speedX` by `3` from `-13` back to `-10` which actually slows down the box.
+
+Instead we need to increase the _magnitude_ (how big the absolute value is) of the box.
+
+The pseudocode for solving this problem looks like this:
+```
+IF speedX is positive:
+    add 3 to speedX
+ELSE IF speedX is negative:
+    subtract 3 from speedX
+```
  
 <hr>
 
