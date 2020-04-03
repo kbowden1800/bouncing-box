@@ -490,10 +490,10 @@ Now, using what you've learned about how to bounce the box off the right wall, i
 
 Great work! It seems like our Bouncing Box game is complete. However, we've created a _bug_ in our program that we need to squash! Thankfully, this bug doesn't break the program completely, it just makes it behave in a way that we'd like to change. 
 
-Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speedX` is `10` and `positionX` is `0`.  Each time a new frame is drawn, we execute the code below:
+Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speed` is `10` and `positionX` is `0`.  Each time a new frame is drawn, we execute the code below:
 
 ```js
-positionX += speedX;
+positionX += speed;
 ```
 
 `positionX` will _increase_ by `10` on each frame, moving the box to the right. Great.
@@ -501,26 +501,26 @@ positionX += speedX;
 Now, take a look at the `handleBoxClick` function. We've coded it to do the following when the user clicks on the box:
 
 ```js
-speedX += 3;
+speed += 3;
 ```
 
-If `speedX` is positive `10` and we click on the box, `3` will be added to `speedX` making it equal to `13` and making the box move faster on each frame. This is also great. 
+If `speed` is positive `10` and we click on the box, `3` will be added to `speed` making it equal to `13` and making the box move faster on each frame. This is also great. 
 
 **The problem occurs when we click on the box when the box is moving LEFT**.
 
-When the box hits the right wall, we make `speedX` negative, changing it to `-13`. This makes the `positionX` _decrease_ by `13` on each frame, moving the box to the left at the same speed as before. 
+When the box hits the right wall, we make `speed` negative, changing it to `-13`. This makes the `positionX` _decrease_ by `13` on each frame, moving the box to the left at the same speed as before. 
 
-However, if we were to click on the box while it's moving to the left, we would add `3` to `speedX`: `-13 + 3 = -10`
+However, if we were to click on the box while it's moving to the left, we would add `3` to `speed`: `-13 + 3 = -10`
 
-We've increased the _value_ of `speedX` by `3` from `-13` back to `-10` which actually slows down the box.
+We've increased the _value_ of `speed` by `3` from `-13` back to `-10` which actually slows down the box.
 
 Instead we need to increase the _magnitude_ (how big the absolute value is) of the box.
 
 The pseudocode for solving this problem looks like this:
 ```
-IF speedX is positive:
+IF speed is positive:
     add 3 to speedX
-ELSE IF speedX is negative:
+ELSE IF speed is negative:
     subtract 3 from speedX
 ```
  
@@ -576,7 +576,7 @@ If the boundaries of our game along the x axis are at `0` and `boardWidth`, how 
 
 Once you generate this random number, where would you use it so that after a box click the position is set to that random value?
 
-### Challenge 3) Can you make the box change color with each click? How about every 3 clicks?
+### Challenge 4) Can you make the box change color with each click? How about every 3 clicks?
 
 The color of the box can be changed using the method `box.css()` like so:
 
