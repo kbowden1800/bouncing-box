@@ -490,13 +490,13 @@ Now, using what you've learned about how to bounce the box off the right wall, i
 
 Great work! It seems like our Bouncing Box game is complete. However, we've created a _bug_ in our program that we need to squash! Thankfully, this bug doesn't break the program completely, it just makes it behave in a way that we'd like to change. 
 
-Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speedX = 10` and, each time a new frame is drawn, we are running this code to change the position of our box over time:
+Okay, to understand this bug, imagine that the game has just begun and the box is moving to the right. We know that `speedX` is `10` and `positionX` is `0`.  Each time a new frame is drawn, we execute the code below:
 
 ```js
-    positionX += speedX;
+positionX += speedX;
 ```
 
-So, if `speedX` is equal to `10` then `positionX` will _increase_ by `10` on each frame, moving the box to the right. Great.
+`positionX` will _increase_ by `10` on each frame, moving the box to the right. Great.
 
 Now, take a look at the `handleBoxClick` function. We've coded it to do the following when the user clicks on the box:
 
